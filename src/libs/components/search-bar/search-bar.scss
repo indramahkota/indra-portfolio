@@ -1,0 +1,128 @@
+.searchFloater {
+    position: fixed;
+    bottom: 75px;
+    right: 75px;
+    transition: transform ease-in-out 0.2s;
+    transform: translate(-50%, -50%);
+
+    &.hide {
+        -webkit-transform: translateX(150px);
+        -ms-transform: translateX(150px);
+        transform: translateX(150px);
+    }
+
+    .searchAnchor {
+        position: relative;
+        width: auto;
+        height: auto;
+
+        form {
+            .searchBar {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                outline: none;
+                border: none;
+                background: #fff;
+                width: 50px;
+                height: 50px;
+                border-radius: 25px;
+                opacity: 0;
+                z-index: 5;
+                transition: transform 0.2;
+                font-size: 1em;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                &:focus {
+                    width: 200px;
+                    left: auto;
+                    opacity: 1;
+                    cursor: text;
+                    transition: transform 0.2;
+                    padding-left: 25px;
+                    padding-right: 70px;
+
+                    & ~ .searchToggler {
+                        right: 400px;
+                        background: #151515;
+                        z-index: 6;
+                        transition: transform 0.2;
+                    }
+
+                    & ~ .searchToggler::before {
+                        top: 0;
+                        left: 0;
+                        width: 25px;
+                    }
+
+                    & ~ .searchToggler::after {
+                        top: 0;
+                        left: 0;
+                        width: 25px;
+                        height: 2px;
+                        border: none;
+                        background: white;
+                        border-radius: 0%;
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+
+            .searchSubmit {
+                opacity: 0;
+                width: 0;
+            }
+
+            .searchToggler {
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                background: #0062ff;
+                opacity: 1;
+                top: -4px;
+                left: -4px;
+                border-radius: 50%;
+                transition: transform 0.2s;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    margin: auto;
+                    top: 22px;
+                    right: 0;
+                    bottom: 0;
+                    left: 22px;
+                    width: 12px;
+                    height: 2px;
+                    background: #fff;
+                    transform: rotate(45deg);
+                    transition: transform 0.2s;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    margin: auto;
+                    top: -5px;
+                    right: 0;
+                    bottom: 0;
+                    left: -5px;
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+                    border: 2px solid #fff;
+                    transition: transform 0.2s;
+                }
+            }
+        }
+    }
+}

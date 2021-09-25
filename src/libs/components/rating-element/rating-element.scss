@@ -1,0 +1,14 @@
+.ratingContainer {
+    display: inline-block;
+    position: relative;
+    
+    .goldRatingItem {
+        top: 0;
+        left: 0;
+        width: 0;
+        color: gold;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+    }
+}

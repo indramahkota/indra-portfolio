@@ -1,0 +1,74 @@
+@import "./utilities/variables";
+
+:root {
+    --color-text: #{$light-for-text};
+    --color-button: #{$light-button-color};
+    --color-line: #{$light-for-line};
+    --color-article-background: #{$light-for-card};
+    --color-page-background: #{$light-for-background};
+    --color-hero-background: #{$light-for-hero-background};
+    --color-background-shadow: #{$light-for-background-shadow};
+    --color-shimmer-gradient-weak: #{$light-for-gradient-weak};
+    --color-shimmer-gradient-strong: #{$light-for-gradient-strong};
+    --color-input-border: #{$light-for-input-border};
+}
+
+.dark {
+    --color-text: #{$dark-for-text};
+    --color-button: #{$dark-button-color};
+    --color-line: #{$dark-for-line};
+    --color-article-background: #{$dark-for-card};
+    --color-page-background: #{$dark-for-background};
+    --color-hero-background: #{$dark-for-hero-background};
+    --color-background-shadow: #{$dark-for-background-shadow};
+    --color-shimmer-gradient-weak: #{$dark-for-gradient-weak};
+    --color-shimmer-gradient-strong: #{$dark-for-gradient-strong};
+    --color-input-border: #{$dark-for-input-border};
+}
+
+::placeholder {
+    color: var(--color-text);
+    opacity: 0.7;
+}
+
+:-ms-input-placeholder {
+    color: var(--color-text);
+    opacity: 0.7;
+}
+
+::-ms-input-placeholder {
+    color: var(--color-text);
+    opacity: 0.7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+body {
+    height: 100%;
+    background-color: var(--color-page-background);
+    font: 16px / normal Montserrat, "Montserrat", sans-serif;
+
+    .skip-link {
+        position: absolute;
+        left: 0;
+        top: -40px;
+        background-color: #bf1722;
+        color: white;
+        padding: 8px;
+        z-index: 1001;
+    }
+
+    .skip-link:focus {
+        top: 64px;
+        left: 4px;
+    }
+}
