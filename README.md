@@ -1,5 +1,4 @@
 # My Portfolio
-Example progressive web app using typescript, webpack, workbox, index db, and dicoding restaurant api.
 
 [![GitHub](https://img.shields.io/github/license/indramahkota/indra-portfolio?color=blue)](https://github.com/indramahkota/indra-portfolio/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/indramahkota/indra-portfolio)](https://github.com/indramahkota/indra-portfolio/stargazers)  [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
