@@ -6,6 +6,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 
+const pwaPlugin = require('./pwa/pwa-plugin');
+
 const isProduction = process.env.NODE_ENV == "production";
 
 const stylesHandler = isProduction
@@ -33,9 +35,10 @@ const fileToCopy = [
 ];
 
 const config = {
-  entry: "./src/index.ts",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[contenthash:8].js',
+    publicPath: './',
   },
   devServer: {
     open: true,
@@ -95,11 +98,19 @@ module.exports = () => {
   if (isProduction) {
     config.mode = "production";
 
+    config.entry = {
+      main: path.resolve(__dirname, 'src/index.ts'),
+      sw: path.resolve(__dirname, 'src/sw.ts')
+    }
+
     config.plugins.push(new MiniCssExtractPlugin());
 
-    /* config.plugins.push(new WorkboxWebpackPlugin.GenerateSW()); */
+    pwaPlugin.forEach(item => {
+      config.plugins.push(item);
+    })
   } else {
     config.mode = "development";
+    config.entry = path.resolve(__dirname, 'src/index.ts');
   }
   return config;
 };

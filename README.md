@@ -17,7 +17,7 @@ $ cd indra-portfolio
 $ npm install
 
 #Start's development server
-$ npm run start
+$ npm run serve
 ```
 
 ![My Portfolio](https://raw.githubusercontent.com/indramahkota/indramahkota.github.io/master/assets/githubs/indramahkota.png)

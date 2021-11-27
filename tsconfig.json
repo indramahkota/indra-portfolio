@@ -33,7 +33,8 @@
     ]
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "node_modules/lit-scss-loader/types.d.ts"
   ],
   "files": [
     "src/index.ts"

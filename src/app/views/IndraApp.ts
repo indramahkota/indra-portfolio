@@ -29,9 +29,9 @@ export class IndraApp extends CommonElement {
   render() {
     return html`
       <app-bar></app-bar>
-      <section id='content' style='width: 100%; margin-top: 77px; display: flex; flex-direction: column;'>
+      <main id='content'>
         <landing-page></landing-page>
-      </section>
+      </main>
       <foot-bar></foot-bar>
 
       ${this.toastMessage ? html`
