@@ -4,9 +4,9 @@
 const { resolve, join } = require('path');
 
 module.exports = {
-  name: "Resto Finder",
-  short_name: "Resto Finder",
-  description: "Resto Finder - Resto Finder - Provides various information on the best restaurants around you",
+  name: "Indra Mahkota",
+  short_name: "Indra",
+  description: "A passionate Software Developer, having an Experience working at Telco company and some software house company.",
   gcm_sender_id: "792532488211",
   start_url: "/",
   display: "standalone",
