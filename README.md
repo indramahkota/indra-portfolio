@@ -14,10 +14,10 @@ $ git clone https://github.com/indramahkota/indra-portfolio.git
 $ cd indra-portfolio
 
 # Install dependencies
-$ npm install
+$ yarn install
 
 #Start's development server
-$ npm run serve
+$ yarn serve
 ```
 
 ![My Portfolio](https://raw.githubusercontent.com/indramahkota/indramahkota.github.io/master/assets/githubs/indramahkota.png)
