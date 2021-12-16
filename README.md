@@ -16,7 +16,7 @@ $ cd indra-portfolio
 # Install dependencies
 $ yarn install
 
-#Start's development server
+# Start's development server
 $ yarn serve
 ```
 
