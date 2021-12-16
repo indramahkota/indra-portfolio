@@ -4,9 +4,20 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-// const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 
 const pwaPlugin = require('./pwa/pwa-plugin');
+
+const webcomponents_vendor = 'node_modules/@webcomponents/webcomponentsjs';
+const fileToCopy = [
+  {
+    from: path.resolve(`${webcomponents_vendor}/custom-elements-es5-adapter.js`),
+    to: 'static/vendors',
+  },
+  {
+    from: path.resolve(`${webcomponents_vendor}/webcomponents-loader.js`),
+    to: 'static/vendors',
+  }
+];
 
 const isProduction = process.env.NODE_ENV == "production";
 
@@ -14,31 +25,11 @@ const stylesHandler = isProduction
   ? MiniCssExtractPlugin.loader
   : "style-loader";
 
-const webcomponents_vendor = 'node_modules/@webcomponents/webcomponentsjs';
-const fileToCopy = [
-  /* {
-    from: path.resolve(`${webcomponents_vendor}/custom-elements-es5-adapter.js`),
-    to: 'static/vendors',
-    flatten: true,
-    transform: fileContent => {
-      return minify(fileContent.toString()).code;
-    }
-  }, */
-  {
-    from: path.resolve(`${webcomponents_vendor}/webcomponents-loader.js`),
-    to: 'static/vendors',
-    /* flatten: true,
-    transform: fileContent => {
-      return minify(fileContent.toString()).code;
-    } */
-  }
-];
-
 const config = {
+  entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash:8].js',
-    publicPath: './',
   },
   devServer: {
     open: true,
@@ -51,6 +42,15 @@ const config = {
       template: path.resolve(__dirname, 'src/index.html'),
       minify: { collapseWhitespace: true, removeComments: true }
     }),
+    new CopyWebpackPlugin({
+      patterns: [
+        ...fileToCopy,
+        {
+          from: path.resolve(__dirname, 'public/'),
+          to: path.resolve(__dirname, 'dist/')
+        }
+      ]
+    })
   ],
   module: {
     rules: [
@@ -84,18 +84,6 @@ const config = {
 };
 
 module.exports = () => {
-  config.plugins.push(
-    new CopyWebpackPlugin({
-      patterns: [
-        ...fileToCopy,
-        {
-          from: path.resolve(__dirname, 'public/'),
-          to: path.resolve(__dirname, 'dist/')
-        }
-      ]
-    }),
-  );
-
   if (isProduction) {
     config.mode = "production";
 
