@@ -34,7 +34,7 @@ export default class UserProfile extends CommonElement {
                             </div>
                         </div>
                         <div class='profileImageContainer'>
-                            <img class='profileImage' src='${this.data.image}' alt='Indra Mahkota, Developer who build this website'/>
+                            <img width="200" height="200" class='profileImage' src='${this.data.image}' alt='Indra Mahkota, Developer who build this website'/>
                         </div>
                     </div>
                 </div>

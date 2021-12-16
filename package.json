@@ -1,7 +1,7 @@
 {
-  "name": "my-webpack-project",
+  "name": "indra-portfolio",
   "version": "1.0.0",
-  "description": "My webpack project",
+  "description": "Indra Mahkota's Personal Website",
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
@@ -16,7 +16,7 @@
     "lit"
   ],
   "author": "Indra Mahkota <indramahkota1@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^2.6.0",
     "lit": "^2.0.0",
@@ -45,6 +45,8 @@
     "html-minifier": "^4.0.0",
     "html-webpack-injector": "^1.1.4",
     "html-webpack-plugin": "^5.3.2",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-webpack-plugin": "^2.4.2",
     "lit-analyzer": "^1.2.1",
     "lit-scss-loader": "^1.1.0",
     "mini-css-extract-plugin": "^2.3.0",

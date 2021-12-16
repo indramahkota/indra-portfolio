@@ -4,6 +4,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
+const ImageminMozjpeg = require('imagemin-mozjpeg');
 
 const pwaPlugin = require('./pwa/pwa-plugin');
 
@@ -96,6 +98,14 @@ module.exports = () => {
     }
 
     config.plugins.push(new MiniCssExtractPlugin());
+    config.plugins.push(new ImageminWebpackPlugin({
+      plugins: [
+        ImageminMozjpeg({
+          quality: 50,
+          progressive: true,
+        }),
+      ],
+    }));
 
     pwaPlugin.forEach(item => {
       config.plugins.push(item);
