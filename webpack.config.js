@@ -25,11 +25,14 @@ const stylesHandler = isProduction
   ? MiniCssExtractPlugin.loader
   : "style-loader";
 
+const ASSET_PATH = process.env.ASSET_PATH || '/';
+
 const config = {
   entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash:8].js',
+    publicPath: ASSET_PATH,
   },
   devServer: {
     open: true,
