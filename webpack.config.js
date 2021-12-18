@@ -91,7 +91,6 @@ const config = {
 module.exports = () => {
   if (isProduction) {
     config.mode = "production";
-
     config.entry = {
       main: path.resolve(__dirname, 'src/index.ts'),
       sw: path.resolve(__dirname, 'src/sw.ts')
@@ -114,5 +113,6 @@ module.exports = () => {
     config.mode = "development";
     config.entry = path.resolve(__dirname, 'src/index.ts');
   }
+
   return config;
 };
