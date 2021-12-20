@@ -20,7 +20,7 @@ export default class AppConfig {
     }
 
     static readonly APP_NAVIGATION: INavigation[] = [
-        { name: 'Skills', url: '#/skills', isActive: true },
+        { name: 'Skills', url: '#/skills', isActive: false },
         { name: 'Work Experiences', url: '#/work-experiences', isActive: false },
         { name: 'Projects', url: '#/projects', isActive: false }
     ];
@@ -28,7 +28,7 @@ export default class AppConfig {
     static readonly APP_ICON_NAVIGATION: IProfileNavigation = {
         name: 'Indra Mahkota',
         url: '#/profile',
-        isActive: false,
+        isActive: true,
         imageUrl: userImageUrlRound,
         imageAlt: 'Indra Mahkota'
     }

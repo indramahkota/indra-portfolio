@@ -123,6 +123,7 @@ export default class AppBar extends CommonElement implements IScrollEffect {
     }
 
     dataShouldUpdate(hash: string): void {
+        this.iconNavData.isActive = this.iconNavData.url === hash || false;
         this.navData = this.navData.map(nav => {
             nav.isActive = nav.url === hash || false;
             return nav;
@@ -192,7 +193,7 @@ export default class AppBar extends CommonElement implements IScrollEffect {
                             ${this.navData.map(nav => this.renderNavList(nav))}
 
                             <li>
-                                <a href='${this.iconNavData.url}' class='anchorIconContainer ${this.iconNavFocus ? 'active' : ''}' @click='${this._onIconNavClickHandler}'>
+                                <a href='${this.iconNavData.url}' class='anchorIconContainer ${this.iconNavFocus || this.iconNavData.isActive  ? 'active' : ''}' @click='${this._onIconNavClickHandler}'>
                                     <img class='anchorIcon' src='${this.iconNavData.imageUrl}' alt='${this.iconNavData.imageAlt}'/>
                                     <p class='anchorName'>${this.iconNavData.name}</p>
                                     <span class='chevron'></span>
