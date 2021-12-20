@@ -20,6 +20,10 @@ $ yarn install
 $ yarn serve
 ```
 
+## Figma Design 🎨
+
+[`Link to figma design`](https://www.figma.com/file/80qY7rNVpEySpr2VVVo6bd/Indra-Web-Portfolio?node-id=0%3A1)
+
 ![My Portfolio](https://raw.githubusercontent.com/indramahkota/indramahkota.github.io/master/assets/githubs/indramahkota.png)
 
 ## License
