@@ -2,7 +2,7 @@ import { html, nothing } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
 import CommonElement from '../../libs/components/_base_/commonElement';
-import EventType from '../../data/globals/eventType';
+import EventType from '../../data/utils/EventType';
 
 import "../../libs/components/app-toast/appToast";
 import "../../libs/components/foot-bar/footBar";

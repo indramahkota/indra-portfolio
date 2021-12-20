@@ -1,6 +1,6 @@
 import { html, render } from 'lit';
-import AppConfig from '../data/globals/appConfig';
-import Utils from '../data/globals/appUtilities';
+import AppConfig from '../data/Config';
+import Utils from '../data/utils/Utils';
 
 import './views/IndraApp';
 

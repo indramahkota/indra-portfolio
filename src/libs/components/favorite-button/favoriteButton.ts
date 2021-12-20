@@ -1,7 +1,7 @@
 import { html, TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import EventType from '../../../data/globals/eventType';
+import EventType from '../../../data/utils/EventType';
 import CommonElement from '../_base_/commonElement';
 
 @customElement('favorite-button')

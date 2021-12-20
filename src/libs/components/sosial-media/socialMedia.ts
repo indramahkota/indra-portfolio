@@ -1,9 +1,9 @@
 import { html, TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import AppConfig from '../../../data/globals/appConfig';
+import AppConfig from '../../../data/Config';
 import CommonElement from '../_base_/commonElement';
-import { ISocialMedia } from '../../../data/globals/interfaces';
+import { ISocialMedia } from '../../../data/model/models';
 
 @customElement('social-media')
 export default class SocialMedia extends CommonElement {

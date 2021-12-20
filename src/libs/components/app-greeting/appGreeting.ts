@@ -1,6 +1,6 @@
 import { html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import AppConfig from '../../../data/globals/appConfig';
+import AppConfig from '../../../data/Config';
 import CommonElement from '../../../libs/components/_base_/commonElement';
 
 @customElement('app-greeting')

@@ -1,6 +1,6 @@
-import { IProfileNavigation, INavigation, ISocialMedia, IUser } from './interfaces';
-import userImageUrl from '../../libs/assets/images/avatars/profile.webp';
-import userImageUrlRound from '../../libs/assets/images/avatars/profile_round_60.webp';
+import { IProfileNavigation, INavigation, ISocialMedia, IUser } from './model/models';
+import userImageUrl from '../libs/assets/images/avatars/profile.webp';
+import userImageUrlRound from '../libs/assets/images/avatars/profile_round_60.webp';
 
 export default class AppConfig {
     static readonly APP_NAME: string = 'My Portfolio';

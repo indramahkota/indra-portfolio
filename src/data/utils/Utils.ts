@@ -1,21 +1,21 @@
-import AppExeption from "./appExeption";
+import MSG from "./Msg";
 
 export function getLocalStorage(): Storage {
     if (!window.localStorage)
-        throw new Error(AppExeption.LOCAL_STORAGE_NOT_SUPPORTED);
+        throw new Error(MSG.LOCAL_STORAGE_NOT_SUPPORTED);
     return window.localStorage;
 }
 
 export default class Utils {
     static setLCS(key: string, value: string): void {
         if (key === '')
-            throw new Error(AppExeption.LOCAL_STORAGE_KEY_CAN_NOT_BE_EMPTY);
+            throw new Error(MSG.LOCAL_STORAGE_KEY_CAN_NOT_BE_EMPTY);
         getLocalStorage().setItem(key, value);
     }
 
     static getLCS(key: string): string | null {
         if (key === '')
-            throw new Error(AppExeption.LOCAL_STORAGE_KEY_CAN_NOT_BE_EMPTY);
+            throw new Error(MSG.LOCAL_STORAGE_KEY_CAN_NOT_BE_EMPTY);
         return getLocalStorage().getItem(key);
     }
 

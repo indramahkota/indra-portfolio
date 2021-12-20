@@ -1,9 +1,9 @@
 import { html, nothing, TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import Utils from '../../../data/globals/appUtilities';
-import AppConfig from '../../../data/globals/appConfig';
-import { INavigation } from '../../../data/globals/interfaces';
+import Utils from '../../../data/utils/Utils';
+import AppConfig from '../../../data/Config';
+import { INavigation } from '../../../data/model/models';
 import CommonElement from '../_base_/commonElement';
 import IScrollEffect from '../_base_/interfaces/IScrollEffect';
 
