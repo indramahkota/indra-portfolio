@@ -13,7 +13,8 @@ module.exports = [
         swDest: 'sw.js',
         exclude: [
             /types/,
-            /CNAME/
+            /CNAME/,
+            /assets/
         ],
         maximumFileSizeToCacheInBytes: 5000000
     })
