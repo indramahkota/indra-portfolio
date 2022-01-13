@@ -4,8 +4,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
-const ImageminMozjpeg = require('imagemin-mozjpeg');
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 
 const pwaPlugin = require('./pwa/pwa-plugin');
@@ -98,14 +97,23 @@ module.exports = () => {
     }
 
     config.plugins.push(new MiniCssExtractPlugin());
-    config.plugins.push(new ImageminWebpackPlugin({
-      plugins: [
-        ImageminMozjpeg({
-          quality: 50,
-          progressive: true,
-        }),
-      ],
-    }));
+    config.plugins.push(
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.imageminMinify,
+          options: {
+            plugins: [
+              "imagemin-gifsicle",
+              "imagemin-mozjpeg",
+              "imagemin-pngquant",
+              "imagemin-svgo",
+            ],
+          },
+        },
+        // Disable `loader`
+        loader: false,
+      })
+    );
 
     pwaPlugin.forEach(item => {
       config.plugins.push(item);
