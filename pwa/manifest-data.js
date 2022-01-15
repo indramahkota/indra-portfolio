@@ -1,12 +1,13 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
 
-const { resolve, join } = require('path');
+const { resolve, join } = require("path");
 
 module.exports = {
   name: "Indra Mahkota",
   short_name: "Indra",
-  description: "A passionate Software Developer, having an Experience working at Telco company and some software house company.",
+  description:
+    "A passionate Software Developer, having an Experience working at Telco company and some software house company.",
   gcm_sender_id: "792532488211",
   start_url: "/",
   display: "standalone",
@@ -95,6 +96,6 @@ module.exports = {
       sizes: "512x512",
       type: "image/png",
       purpose: "any maskable",
-    }
+    },
   ],
 };

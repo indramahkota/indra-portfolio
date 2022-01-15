@@ -13,7 +13,7 @@ const firebaseConfig = {
   storageBucket: "personal-web-indramahkota-info.appspot.com",
   messagingSenderId: "916473936708",
   appId: "1:916473936708:web:b2101c16be1dd2a847b511",
-  measurementId: "G-L22HYVFN2S"
+  measurementId: "G-L22HYVFN2S",
 };
 
 // Initialize Firebase

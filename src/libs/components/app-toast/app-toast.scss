@@ -1,57 +1,57 @@
 .toastContainer {
-    width: 100%;
-    bottom: 50px;
-    z-index: 999;
-    display: flex;
-    position: fixed;
-    pointer-events:none;
+  width: 100%;
+  bottom: 50px;
+  z-index: 999;
+  display: flex;
+  position: fixed;
+  pointer-events: none;
 
-    p {
-        width: 80%;
-        max-width: 250px;
-        margin: auto;
-        color: #fff;
-        border-radius: 8px;
-        padding: 16px;
-        text-align: center;
-        background-color: #333;
-        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-        animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    }
+  p {
+    width: 80%;
+    max-width: 250px;
+    margin: auto;
+    color: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    background-color: #333;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
 }
 
 @-webkit-keyframes fadein {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadein {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeout {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes fadeout {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }

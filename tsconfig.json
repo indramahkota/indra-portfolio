@@ -3,7 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "noImplicitAny": true,
     "target": "es2015",
-		"module": "es2020",
+    "module": "es2020",
     "allowJs": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedParameters": true,
@@ -13,11 +13,7 @@
     "declarationDir": "dist/types",
     "declaration": true,
     "strict": true,
-    "lib": [
-      "es2017",
-      "dom",
-      "dom.iterable"
-    ],
+    "lib": ["es2017", "dom", "dom.iterable"],
     "declarationMap": true,
     "sourceMap": true,
     "outDir": "./dist",
@@ -32,11 +28,6 @@
       }
     ]
   },
-  "include": [
-    "src/**/*",
-    "node_modules/lit-scss-loader/types.d.ts"
-  ],
-  "files": [
-    "src/index.ts"
-  ]
+  "include": ["src/**/*", "node_modules/lit-scss-loader/types.d.ts"],
+  "files": ["src/index.ts"]
 }
