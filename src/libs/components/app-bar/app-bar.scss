@@ -44,6 +44,8 @@
       input {
         width: 0;
         height: 0;
+        transform: scale(0, 0);
+        -webkit-transform: scale(0, 0);
 
         &:checked + .slider {
           background-color: #2196f3;
