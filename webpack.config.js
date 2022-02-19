@@ -3,6 +3,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -73,11 +74,25 @@ const config = {
       },
       {
         test: /\.css$/i,
-        use: [stylesHandler, "css-loader"],
+        use: [stylesHandler, "css-loader", "postcss-loader"],
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [stylesHandler, "css-loader", "sass-loader"],
+        use: [
+          stylesHandler,
+          "css-loader",
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  'autoprefixer',
+                ]
+              }
+            }
+          },
+          "sass-loader"
+        ],
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|webp|)$/i,
@@ -98,7 +113,9 @@ module.exports = () => {
       sw: path.resolve(__dirname, "src/sw.ts"),
     };
 
-    config.plugins.push(new MiniCssExtractPlugin());
+    config.plugins.push(new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash:8].css'
+    }));
     config.plugins.push(
       new ImageMinimizerPlugin({
         minimizer: {
@@ -125,6 +142,9 @@ module.exports = () => {
     config.optimization = {
       minimize: true,
       minimizer: [
+        new ESBuildMinifyPlugin({
+          css: true
+        }),
         new TerserPlugin({
           terserOptions: {
             compress: {
