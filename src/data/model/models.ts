@@ -2,11 +2,8 @@ export interface INavigation {
   name: string;
   url: string;
   isActive: boolean;
-}
-
-export interface IProfileNavigation extends INavigation {
-  imageUrl: string;
-  imageAlt: string;
+  imageUrl: string | undefined;
+  imageAlt: string | undefined;
 }
 
 export interface IUser {

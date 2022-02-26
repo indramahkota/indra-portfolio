@@ -1,9 +1,4 @@
-import {
-  IProfileNavigation,
-  INavigation,
-  ISocialMedia,
-  IUser,
-} from "./model/models";
+import { INavigation, ISocialMedia, IUser } from "./model/models";
 import userImageUrl from "../libs/assets/images/avatars/profile.webp";
 import userImageUrlRound from "../libs/assets/images/avatars/profile_round_60.webp";
 
@@ -26,18 +21,35 @@ export default class AppConfig {
   };
 
   static readonly APP_NAVIGATION: INavigation[] = [
-    { name: "Skills", url: "#/skills", isActive: false },
-    { name: "Work Experiences", url: "#/work-experiences", isActive: false },
-    { name: "Projects", url: "#/projects", isActive: false },
+    {
+      name: "Skills",
+      url: "#/skills",
+      isActive: false,
+      imageUrl: undefined,
+      imageAlt: undefined,
+    },
+    {
+      name: "Work Experiences",
+      url: "#/work-experiences",
+      isActive: false,
+      imageUrl: undefined,
+      imageAlt: undefined,
+    },
+    {
+      name: "Projects",
+      url: "#/projects",
+      isActive: false,
+      imageUrl: undefined,
+      imageAlt: undefined,
+    },
+    {
+      name: "Indra Mahkota",
+      url: "#/profile",
+      isActive: true,
+      imageUrl: userImageUrlRound,
+      imageAlt: "Indra Mahkota",
+    },
   ];
-
-  static readonly APP_ICON_NAVIGATION: IProfileNavigation = {
-    name: "Indra Mahkota",
-    url: "#/profile",
-    isActive: true,
-    imageUrl: userImageUrlRound,
-    imageAlt: "Indra Mahkota",
-  };
 
   static readonly APP_SOCIAL_MEDIA: ISocialMedia[] = [
     {

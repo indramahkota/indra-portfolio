@@ -1,0 +1,27 @@
+@mixin wh-inherit {
+  width: inherit;
+  height: inherit;
+}
+
+@mixin wh($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin scale($scaleX, $scaleY) {
+  -webkit-transform: scale($scaleX, $scaleY);
+  -ms-transform: scale($scaleX, $scaleY);
+  transform: scale($scaleX, $scaleY);
+}
+
+@mixin translateX($value) {
+  -webkit-transform: translateX($value);
+  -ms-transform: translateX($value);
+  transform: translateX($value);
+}
+
+@mixin translateY($value) {
+  -webkit-transform: translateY($value);
+  -ms-transform: translateY($value);
+  transform: translateY($value);
+}

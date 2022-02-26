@@ -1,8 +1,10 @@
 import { html, LitElement } from "lit";
 import { customElement } from "lit/decorators.js";
 
-@customElement("indra-app")
-export class IndraApp extends LitElement {
+import "../../libs/components/in-header/inHeader";
+
+@customElement("indramahkota-personal-website")
+export class IndraMahkotaPersonalWebsite extends LitElement {
   createRenderRoot(): Element | ShadowRoot {
     return this;
   }
@@ -16,17 +18,13 @@ export class IndraApp extends LitElement {
   }
 
   render() {
-    return html`
-      <h1>
-        Hello, World!
-      </h1>
-    `;
+    return html`<in-header></in-header>`;
   }
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 declare global {
   interface HTMLElementTagNameMap {
-    "indra-app": IndraApp;
+    "indramahkota-personal-website": IndraMahkotaPersonalWebsite;
   }
 }
