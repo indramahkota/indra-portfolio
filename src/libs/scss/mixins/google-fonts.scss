@@ -19,7 +19,7 @@ $fontWeightNames: (
   400: "Regular",
   500: "Medium",
   600: "SemiBold",
-  700: "Bold"
+  700: "Bold",
 );
 
 //---------------------------------------------
@@ -28,19 +28,17 @@ $fontWeightNames: (
 
 @mixin googleFont($font) {
   $fontFamily: map-get($font, "name");
+  $fontStyle: map-get($font, "style");
   $folderName: map-get($font, "folder");
   $fileName: map-get($font, "files");
   $weights: map-get($font, "weights");
   @each $weight in $weights {
-    $weightName: map-get($fontWeightNames, $weight);
     @font-face {
       font-family: "#{$fontFamily}";
+      font-style: $fontStyle;
       font-weight: $weight;
       font-display: swap;
-      src: url("../../fonts/#{$folderName}/#{$fileName}-#{$weightName}.eot"); /* IE 9 - 11 */
-      src: url("../../fonts/#{$folderName}/#{$fileName}-#{$weightName}.eot?#iefix") format('embedded-opentype'), /* IE 9 - 11 */
-      url("../../fonts/#{$folderName}/#{$fileName}-#{$weightName}.woff2") format('woff2'),
-      url("../../fonts/#{$folderName}/#{$fileName}-#{$weightName}.woff") format('woff');
+      src: url("./fonts/#{$folderName}/#{$fileName}.woff2") format("woff2");
     }
   }
 }
