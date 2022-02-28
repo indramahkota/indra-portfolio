@@ -36,7 +36,7 @@ const config = {
   entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].[contenthash:8].js",
+    filename: "static/js/[contenthash:16].js",
     publicPath: ASSET_PATH,
   },
   devServer: {
@@ -73,14 +73,15 @@ const config = {
         exclude: ["/node_modules/"],
       },
       {
-        test: /\.css$/i,
-        use: [stylesHandler, "css-loader", "postcss-loader"],
-      },
-      {
-        test: /\.s[ac]ss$/i,
+        test: /\.(sa|sc|c)ss$/i,
         use: [
           stylesHandler,
-          "css-loader",
+          {
+            loader: "css-loader",
+            options: {
+              url: false,
+            },
+          },
           {
             loader: 'postcss-loader',
             options: {
@@ -95,8 +96,13 @@ const config = {
         ],
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|webp|)$/i,
-        type: "asset",
+        test: /\.(svg|png|jpg|webp|)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: { name: 'static/images/[contenthash:16].[ext]' }
+          }
+        ]
       },
     ],
   },
@@ -114,7 +120,7 @@ module.exports = () => {
     };
 
     config.plugins.push(new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css'
+      filename: 'static/css/[contenthash:16].css'
     }));
     config.plugins.push(
       new ImageMinimizerPlugin({

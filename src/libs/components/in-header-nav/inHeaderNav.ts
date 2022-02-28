@@ -57,7 +57,7 @@ export default class InHeaderNav extends CommonElement {
     return html`
       <div class="in-header-nav">
         <nav class="${this.isDrawerOpen ? "open" : ""}">
-          <ul>
+          <ul class="p-0">
             ${repeat(
               this.navData,
               (nav) => html`<li>

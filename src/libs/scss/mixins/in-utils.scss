@@ -25,3 +25,7 @@
   -ms-transform: translateY($value);
   transform: translateY($value);
 }
+
+@function neg($val) {
+  @return $val * -1;
+}

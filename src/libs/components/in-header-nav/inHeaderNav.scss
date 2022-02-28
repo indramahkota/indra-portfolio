@@ -1,8 +1,32 @@
+//---------------------------------------------
+// 1. Functions
+//---------------------------------------------
+
+@import "~bootstrap/scss/functions";
+
+//---------------------------------------------
+// 2. Variables
+//---------------------------------------------
+
+@import "~bootstrap/scss/variables";
+
+//---------------------------------------------
+// 3. Mixins
+//---------------------------------------------
+
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+//---------------------------------------------
+// 4. Additional
+//---------------------------------------------
+
 @import "../../scss/mixins/in-utils.scss";
+@import "../../scss/variables.scss";
 
 .in-header-nav {
   nav {
-    top: 60px;
+    top: 77px;
     right: -300px;
     min-width: 300px;
     min-height: 100vh;
@@ -16,14 +40,11 @@
     background-color: var(--color-article-background);
 
     &.open {
-      -webkit-transform: translateX(-300px);
-      -ms-transform: translateX(-300px);
-      transform: translateX(-300px);
+      @include translateX(-300px);
     }
 
     ul {
       list-style: none;
-      padding: 0 0;
 
       li {
         margin: 2px;

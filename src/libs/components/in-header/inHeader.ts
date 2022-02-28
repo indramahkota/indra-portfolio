@@ -11,6 +11,7 @@ import "../in-button-hamburger/inButtonHamburger";
 import "../in-header-logo/inHeaderLogo";
 import "../in-header-nav/inHeaderNav";
 import "../in-toogle-dark/inToggleDark";
+
 import "./inHeader.scss";
 
 @customElement("in-header")
@@ -85,8 +86,15 @@ export default class InHeader extends ScrollElement {
 
   render(): TemplateResult {
     return html`
-      <div class="in-header ${!this.isShow ? "hide" : ""}">
-        <header class="header">
+      <div
+        class="in-header container-fluid position-fixed d-flex align-items-center p-2 ${!this
+          .isShow
+          ? "hide"
+          : ""}"
+      >
+        <header
+          class="header d-flex align-items-center w-100 my-auto mx-auto ps-3 pe-2"
+        >
           <in-header-logo></in-header-logo>
 
           ${this.supportDarkMode
