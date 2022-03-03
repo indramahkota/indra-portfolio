@@ -40,7 +40,7 @@
     background-color: var(--color-article-background);
 
     &.open {
-      @include translateX(-300px);
+      @include translate-x(-300px);
     }
 
     ul {

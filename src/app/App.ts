@@ -12,12 +12,7 @@ if (Utils.getLCS(AppConfig.LCS_THEME) === "dark") {
 
 window.addEventListener("DOMContentLoaded", () => {
   render(
-    html`
-      <a id="skip-to-content" class="skip-link" href="#content">
-        Skip to Content
-      </a>
-      <indramahkota-personal-website></indramahkota-personal-website>
-    `,
+    html`<indramahkota-personal-website></indramahkota-personal-website>`,
     document.body
   );
 });

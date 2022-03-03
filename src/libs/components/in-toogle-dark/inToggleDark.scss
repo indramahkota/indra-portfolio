@@ -37,7 +37,7 @@
       }
 
       &:checked + .slider:before {
-        @include translateX(46px);
+        @include translate-x(46px);
       }
     }
 

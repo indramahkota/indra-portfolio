@@ -85,16 +85,28 @@ export default class InHeader extends ScrollElement {
   }
 
   render(): TemplateResult {
+    const inHeaderSTyle = [
+      "container-fluid",
+      "position-fixed",
+      "d-flex",
+      "align-items-center",
+      "p-2",
+      !this.isShow ? "hide" : "",
+    ].join(" ");
+
+    const headerStyle = [
+      "d-flex",
+      "align-items-center",
+      "w-100",
+      "my-auto",
+      "mx-auto",
+      "ps-3",
+      "pe-2",
+    ].join(" ");
+
     return html`
-      <div
-        class="in-header container-fluid position-fixed d-flex align-items-center p-2 ${!this
-          .isShow
-          ? "hide"
-          : ""}"
-      >
-        <header
-          class="header d-flex align-items-center w-100 my-auto mx-auto ps-3 pe-2"
-        >
+      <div class="in-header ${inHeaderSTyle}">
+        <header class="header ${headerStyle}">
           <in-header-logo></in-header-logo>
 
           ${this.supportDarkMode

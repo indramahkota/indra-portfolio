@@ -1,14 +1,33 @@
+//---------------------------------------------
+// 1. Functions
+//---------------------------------------------
+
+@import "~bootstrap/scss/functions";
+
+//---------------------------------------------
+// 2. Variables
+//---------------------------------------------
+
+@import "~bootstrap/scss/variables";
+
+//---------------------------------------------
+// 3. Mixins
+//---------------------------------------------
+
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+//---------------------------------------------
+// 4. Additional
+//---------------------------------------------
+
+@import "../../scss/mixins/in-utils.scss";
+@import "../../scss/variables.scss";
+
 .in-button-hamburger {
   button {
-    min-width: 44px;
-    min-height: 44px;
+    @include wh-min($button-height, $button-height);
     padding: 20px 20px;
-    border: none;
-    background: none;
-    user-select: none;
-    text-decoration: none;
-    margin-left: auto;
-    cursor: pointer;
 
     .humburger {
       display: block;

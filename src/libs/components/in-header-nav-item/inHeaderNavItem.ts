@@ -28,14 +28,19 @@ export default class InHeaderNavItem extends CommonElement {
 
   render(): TemplateResult {
     if (!this.navItem) return html`${nothing}`;
+    const anchorSTyle = [
+      "d-flex",
+      "justify-content-between-fixed",
+      "align-items-center",
+      "position-relative",
+      this.navItem.isActive ? "active" : "",
+    ].join(" ");
+
     return html`
       <div class="in-header-nav-item">
         <a
           href="${this.navItem.url}"
-          class="d-flex justify-content-between align-items-center position-relative ${this
-            .navItem.isActive
-            ? "active"
-            : ""}"
+          class="${anchorSTyle}"
           @click="${this.onNavItemClickHandler}"
         >
           ${!this.navItem.imageUrl

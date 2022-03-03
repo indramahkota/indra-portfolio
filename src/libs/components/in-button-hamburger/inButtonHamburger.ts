@@ -25,11 +25,21 @@ export default class InButtonHamburger extends CommonElement {
   }
 
   render(): TemplateResult {
+    const buttonStyle = [
+      "pe-auto",
+      "ms-auto",
+      "border-none",
+      "background-none",
+      "user-select-none",
+      "text-decoration-none",
+      this.isDrawerOpen ? "open" : "",
+    ].join(" ");
+
     return html`
       <div class="in-button-hamburger">
         <button
           aria-label="Toggle Menu Button"
-          class="${this.isDrawerOpen ? "open" : ""}"
+          class="${buttonStyle}"
           @click="${this.onHamburgerClickHandler}"
         >
           <span class="humburger"></span>
