@@ -160,6 +160,9 @@ module.exports = () => {
             },
             mangle: true,
             module: false,
+            output: {
+              comments: false,
+            },
           },
           extractComments: true,
         }),
