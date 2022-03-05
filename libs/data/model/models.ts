@@ -1,4 +1,4 @@
-export interface INavigation {
+export interface InNavigationModel {
   name: string;
   url: string;
   isActive: boolean;
@@ -6,7 +6,7 @@ export interface INavigation {
   imageAlt: string | undefined;
 }
 
-export interface IUser {
+export interface InUserModel {
   name: string;
   status: string;
   location: string;
@@ -14,7 +14,7 @@ export interface IUser {
   roundImage: string;
 }
 
-export interface ISocialMedia {
+export interface InSocialMediaModel {
   name: string;
   url: string;
   icon: string;

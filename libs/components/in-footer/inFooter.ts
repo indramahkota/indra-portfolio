@@ -1,7 +1,6 @@
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
-import AppConfig from "../../../data/Config";
 import CommonElement from "../_base_/commonElement";
 
 import "./inFooter.scss";
@@ -9,7 +8,7 @@ import "./inFooter.scss";
 @customElement("in-footer")
 export default class InFooter extends CommonElement {
   @property({ type: String })
-  text = AppConfig.TEXT_FOOTER;
+  text = "";
 
   render(): TemplateResult {
     return html`

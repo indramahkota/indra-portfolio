@@ -1,7 +1,6 @@
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
-import AppConfig from "../../../data/Config";
 import CommonElement from "../_base_/commonElement";
 
 import "./inHeaderLogo.scss";
@@ -9,7 +8,7 @@ import "./inHeaderLogo.scss";
 @customElement("in-header-logo")
 export default class InHeaderLogo extends CommonElement {
   @property({ type: String })
-  title = AppConfig.APP_NAME;
+  title = "";
 
   render(): TemplateResult {
     return html`

@@ -1,6 +1,6 @@
-import { INavigation, ISocialMedia, IUser } from "./model/models";
-import userImageUrl from "../libs/assets/images/avatars/profile.webp";
-import userImageUrlRound from "../libs/assets/images/avatars/profile_round_60.webp";
+import { InNavigationModel, InSocialMediaModel, InUserModel } from "../../libs/data/model/models";
+import userImageUrl from "../../libs/assets/images/avatars/profile.webp";
+import userImageUrlRound from "../../libs/assets/images/avatars/profile_round_60.webp";
 
 export default class AppConfig {
   static readonly APP_NAME: string = "My Portfolio";
@@ -12,7 +12,7 @@ export default class AppConfig {
   static readonly LCS_THEME: string = "indramahkota-theme-mode";
   static readonly LCS_DRAWER: string = "indramahkota-drawer-mode";
 
-  static readonly STATIC_USER: IUser = {
+  static readonly STATIC_USER: InUserModel = {
     name: "Indra Mahkota",
     status: "Open for opportunities: Yes",
     location: "Pontianak, Indonesia",
@@ -20,7 +20,7 @@ export default class AppConfig {
     roundImage: userImageUrlRound,
   };
 
-  static readonly APP_NAVIGATION: INavigation[] = [
+  static readonly APP_NAVIGATION: InNavigationModel[] = [
     {
       name: "Skills",
       url: "#/skills",
@@ -51,7 +51,7 @@ export default class AppConfig {
     },
   ];
 
-  static readonly APP_SOCIAL_MEDIA: ISocialMedia[] = [
+  static readonly APP_SOCIAL_MEDIA: InSocialMediaModel[] = [
     {
       name: "github",
       url: "https://github.com/indramahkota",

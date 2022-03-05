@@ -1,21 +1,23 @@
 import { html } from "lit";
 import { customElement } from "lit/decorators.js";
-import CommonElement from "../../../libs/components/_base_/commonElement";
+import CommonElement from "../../../../libs/components/_base_/commonElement";
 
-import "../../../libs/components/in-profile/inProfile";
+import "../../../../libs/components/in-profile/inProfile";
+import AppConfig from "../../../data/myConfig";
 
 @customElement("page-landing")
-export class Landing extends CommonElement {
-  /* Display flex align items center tidak mengizinkan child div width 100% */
-  /* Basis display [container -> main -> content -> item] */
+export class LandingPage extends CommonElement {
   render() {
-    return html`<in-profile></in-profile>`;
+    return html`<in-profile
+      .user=${AppConfig.STATIC_USER}
+      .socialMedia=${AppConfig.APP_SOCIAL_MEDIA}
+    ></in-profile>`;
   }
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 declare global {
   interface HTMLElementTagNameMap {
-    "page-landing": Landing;
+    "page-landing": LandingPage;
   }
 }

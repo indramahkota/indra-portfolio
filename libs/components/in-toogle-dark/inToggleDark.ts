@@ -1,9 +1,7 @@
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
-import AppConfig from "../../../data/Config";
 import CommonElement from "../_base_/commonElement";
-import Utils from "../../utils/Utils";
 
 import "./inToggleDark.scss";
 
@@ -13,23 +11,23 @@ export default class InToggleDark extends CommonElement {
   isThemeLight = true;
 
   @property({ type: Boolean })
-  darkMode = AppConfig.SUPPORT_DARK_MODE;
+  darkMode = false;
 
   onSwitchChangeHandler(event: Event): void {
     const path = event.composedPath();
     const input = path[0] as HTMLInputElement;
     if (input.checked) {
       window.document.body.classList.remove("dark");
-      Utils.setLCS(AppConfig.LCS_THEME, "light");
+      //Utils.setLCS(AppConfig.LCS_THEME, "light");
     } else {
       window.document.body.classList.add("dark");
-      Utils.setLCS(AppConfig.LCS_THEME, "dark");
+      //Utils.setLCS(AppConfig.LCS_THEME, "dark");
     }
   }
 
   connectedCallback(): void {
     super.connectedCallback();
-    if (Utils.getLCS(AppConfig.LCS_THEME) === "dark") this.isThemeLight = false;
+    //if (Utils.getLCS(AppConfig.LCS_THEME) === "dark") this.isThemeLight = false;
   }
 
   render(): TemplateResult {

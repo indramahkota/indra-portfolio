@@ -1,11 +1,10 @@
 import { html, nothing, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
-import AppConfig from "../../../data/Config";
-import Utils from "../../utils/Utils";
 import ScrollElement from "../_base_/scrollElement";
 import InButtonHamburger from "../in-button-hamburger/inButtonHamburger";
 import InHeaderNavItem from "../in-header-nav-item/inHeaderNavItem";
+import { InNavigationModel } from "../../data/model/models";
 
 import "../in-button-hamburger/inButtonHamburger";
 import "../in-header-logo/inHeaderLogo";
@@ -16,14 +15,22 @@ import "./inHeader.scss";
 
 @customElement("in-header")
 export default class InHeader extends ScrollElement {
-  @property({ type: Boolean })
-  isDrawerOpen = false;
+  static readonly DRAWER_CHANGE = "in-header.drawer_change";
+
+  @property({ type: String })
+  title = "";
+
+  @property({ type: Array })
+  navData: InNavigationModel[] = [];
 
   @property({ type: Boolean })
   isShow = true;
 
   @property({ type: Boolean })
-  supportDarkMode = AppConfig.SUPPORT_DARK_MODE;
+  isDrawerOpen = false;
+
+  @property({ type: Boolean })
+  supportDarkMode = false;
 
   onScrollHandler(): void {
     if (this.currScrollPosition < 120) {
@@ -32,30 +39,37 @@ export default class InHeader extends ScrollElement {
     }
     const scrollPositionDx = this.getScrollPositionDx();
     if (scrollPositionDx > 0) {
-      this.isDrawerOpen = false;
-      Utils.setLCS(AppConfig.LCS_DRAWER, "close");
       this.isShow = false;
+      this.dispatchDrawerState(false);
     } else if (scrollPositionDx < -10) this.isShow = true;
+  }
+
+  dispatchDrawerState(state: boolean) {
+    this.isDrawerOpen = state;
+    this._dispatchData(
+      {
+        data: {
+          drawer: state,
+        },
+      },
+      InHeader.DRAWER_CHANGE
+    );
   }
 
   onResizeHandler = (): void => {
     this.onScrollHandler();
-    this.isDrawerOpen = false;
-    Utils.setLCS(AppConfig.LCS_DRAWER, "close");
+    this.dispatchDrawerState(false);
   };
 
   onDrawerChangeHandler(event: Event): void {
     const details = (event as CustomEvent).detail;
     if (details.data.drawer === undefined) return;
-    this.isDrawerOpen = details.data.drawer;
-    if (this.isDrawerOpen) Utils.setLCS(AppConfig.LCS_DRAWER, "open");
-    else Utils.setLCS(AppConfig.LCS_DRAWER, "close");
+    this.dispatchDrawerState(details.data.drawer);
     this.querySelector("in-header-nav")?.requestUpdate();
   }
 
   connectedCallback(): void {
     super.connectedCallback();
-    if (Utils.getLCS(AppConfig.LCS_DRAWER) === "open") this.isDrawerOpen = true;
     window.addEventListener("resize", this.onResizeHandler, false);
     this.addEventListener(
       InButtonHamburger.CLICK,
@@ -107,7 +121,7 @@ export default class InHeader extends ScrollElement {
     return html`
       <div class="in-header ${inHeaderSTyle}">
         <header class="header ${headerStyle}">
-          <in-header-logo></in-header-logo>
+          <in-header-logo title=${this.title}></in-header-logo>
 
           ${this.supportDarkMode
             ? html`<in-toggle-dark class="ms-auto"></in-toggle-dark>`
@@ -118,7 +132,10 @@ export default class InHeader extends ScrollElement {
             ?isdraweropen=${this.isDrawerOpen}
           ></in-button-hamburger>
 
-          <in-header-nav ?isdraweropen=${this.isDrawerOpen}></in-header-nav>
+          <in-header-nav
+            ?isdraweropen=${this.isDrawerOpen}
+            .navData=${this.navData}
+          ></in-header-nav>
         </header>
       </div>
     `;

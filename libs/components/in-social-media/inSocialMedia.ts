@@ -1,8 +1,7 @@
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import { InSocialMediaModel } from "../../data/model/models";
 
-import AppConfig from "../../../data/Config";
-import { ISocialMedia } from "../../../data/model/models";
 import CommonElement from "../_base_/commonElement";
 
 import "./inSocialMedia.scss";
@@ -10,9 +9,9 @@ import "./inSocialMedia.scss";
 @customElement("in-social-media")
 export default class InSocialMedia extends CommonElement {
   @property({ type: Array })
-  data = AppConfig.APP_SOCIAL_MEDIA;
+  socialMedia: InSocialMediaModel[] = [];
 
-  renderSocialMediaButton(data: ISocialMedia): TemplateResult {
+  renderSocialMediaButton(data: InSocialMediaModel): TemplateResult {
     return html`
       <li>
         <a
@@ -34,7 +33,7 @@ export default class InSocialMedia extends CommonElement {
     return html`
       <div class="in-social-media">
         <ul>
-          ${this.data.map((sm) => this.renderSocialMediaButton(sm))}
+          ${this.socialMedia.map((sm) => this.renderSocialMediaButton(sm))}
         </ul>
       </div>
     `;

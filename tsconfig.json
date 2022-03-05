@@ -17,8 +17,6 @@
     "declarationMap": true,
     "sourceMap": true,
     "outDir": "./dist",
-    "rootDir": "./src",
-    "moduleResolution": "node",
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "plugins": [
@@ -26,8 +24,13 @@
         "name": "ts-lit-plugin",
         "strict": true
       }
-    ]
+    ],
+    "moduleResolution": "node",
+    "baseUrl": "src",
+    "paths": {
+      "@components/*": ["libs/components/*"]
+    }
   },
-  "include": ["src/**/*", "node_modules/lit-scss-loader/types.d.ts"],
+  "include": ["src/**/*", "libs/**/*", "node_modules/lit-scss-loader/types.d.ts"],
   "files": ["src/index.ts"]
 }

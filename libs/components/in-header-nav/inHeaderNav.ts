@@ -4,7 +4,7 @@ import { repeat } from "lit/directives/repeat.js";
 
 import CommonElement from "../_base_/commonElement";
 import InHeaderNavItem from "../in-header-nav-item/inHeaderNavItem";
-import AppConfig from "../../../data/Config";
+import { InNavigationModel } from "../../data/model/models";
 
 import "../in-header-nav-item/inHeaderNavItem";
 import "./inHeaderNav.scss";
@@ -12,7 +12,7 @@ import "./inHeaderNav.scss";
 @customElement("in-header-nav")
 export default class InHeaderNav extends CommonElement {
   @property({ type: Array })
-  navData = AppConfig.APP_NAVIGATION;
+  navData: InNavigationModel[] = [];
 
   @property({ type: Boolean })
   isDrawerOpen = false;

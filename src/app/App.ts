@@ -1,6 +1,6 @@
+import AppConfig from "../data/myConfig";
 import { html, render } from "lit";
-import AppConfig from "../data/Config";
-import Utils from "../libs/utils/Utils";
+import Utils from "./utils/Utils";
 
 import "./views/personalWebsite";
 

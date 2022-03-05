@@ -1,11 +1,10 @@
-import { html, TemplateResult } from "lit";
+import { html, nothing, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
-import AppConfig from "../../../data/Config";
 import CommonElement from "../_base_/commonElement";
+import { InSocialMediaModel, InUserModel } from "../../data/model/models";
 
 import "../in-social-media/inSocialMedia";
-
 import "./inProfile.scss";
 
 @customElement("in-profile")
@@ -14,24 +13,30 @@ export default class InProfile extends CommonElement {
   title = "PROFILE";
 
   @property({ type: Object })
-  data = AppConfig.STATIC_USER;
+  user: InUserModel | undefined;
+
+  @property({ type: Array })
+  socialMedia: InSocialMediaModel[] = [];
 
   render(): TemplateResult {
+    if (!this.user) return html`${nothing}`;
     return html`
       <div class="in-profile">
         <div class="in-profile-main">
           <div class="in-profile-content">
             <div class="in-profile-details">
-              <h2 tabindex="0" class="in-profile-name">${this.data.name}</h2>
+              <h2 tabindex="0" class="in-profile-name">${this.user.name}</h2>
               <div class="in-profile-location">
                 <i class="fas fa-map-marker-alt"></i>
-                <span tabindex="0">${this.data.location}</span>
+                <span tabindex="0">${this.user.location}</span>
               </div>
               <div class="in-profile-hirable">
-                <p tabindex="0">${this.data.status}</p>
+                <p tabindex="0">${this.user.status}</p>
               </div>
               <div class="in-profile-media-social">
-                <in-social-media></in-social-media>
+                <in-social-media
+                  .socialMedia=${this.socialMedia}
+                ></in-social-media>
               </div>
             </div>
             <div class="in-profile-image-container">
@@ -39,7 +44,7 @@ export default class InProfile extends CommonElement {
                 width="200"
                 height="200"
                 class="in-profile-image"
-                src="${this.data.image}"
+                src="${this.user.image}"
                 alt="Indra Mahkota, Developer who build this website"
               />
             </div>

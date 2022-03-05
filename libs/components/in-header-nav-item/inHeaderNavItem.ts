@@ -1,8 +1,7 @@
 import { html, nothing, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { ifDefined } from "lit/directives/if-defined.js";
-import { INavigation } from "../../../data/model/models";
-
+import { InNavigationModel } from "../../data/model/models";
 import CommonElement from "../_base_/commonElement";
 
 import "./inHeaderNavItem.scss";
@@ -12,7 +11,7 @@ export default class InHeaderNavItem extends CommonElement {
   static readonly CLICK = "in-header-nav-item.click";
 
   @property({ type: Object })
-  navItem: INavigation | undefined;
+  navItem: InNavigationModel | undefined;
 
   onNavItemClickHandler(): void {
     this._dispatchData(
