@@ -1,12 +1,11 @@
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import { classMap } from "lit/directives/class-map.js";
 import { repeat } from "lit/directives/repeat.js";
-
-import CommonElement from "../_base_/commonElement";
-import InHeaderNavItem from "../in-header-nav-item/inHeaderNavItem";
 import { InNavigationModel } from "../../data/model/models";
-
+import CommonElement from "../base/commonElement";
 import "../in-header-nav-item/inHeaderNavItem";
+import InHeaderNavItem from "../in-header-nav-item/inHeaderNavItem";
 import "./inHeaderNav.scss";
 
 @customElement("in-header-nav")
@@ -54,9 +53,10 @@ export default class InHeaderNav extends CommonElement {
   }
 
   render(): TemplateResult {
+    const open = { open: this.isDrawerOpen };
     return html`
       <div class="in-header-nav">
-        <nav class="${this.isDrawerOpen ? "open" : ""}">
+        <nav class="${classMap(open)}">
           <ul class="p-0">
             ${repeat(
               this.navData,

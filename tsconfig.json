@@ -26,11 +26,15 @@
       }
     ],
     "moduleResolution": "node",
-    "baseUrl": "src",
+    "baseUrl": "./",
     "paths": {
-      "@components/*": ["libs/components/*"]
+      "@in/*": ["libs/components/*"]
     }
   },
-  "include": ["src/**/*", "libs/**/*", "node_modules/lit-scss-loader/types.d.ts"],
+  "include": [
+    "src/**/*",
+    "libs/**/*",
+    "node_modules/lit-scss-loader/types.d.ts"
+  ],
   "files": ["src/index.ts"]
 }

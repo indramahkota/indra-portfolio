@@ -1,8 +1,6 @@
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
-
-import CommonElement from "../_base_/commonElement";
-
+import CommonElement from "../base/commonElement";
 import "./inHeaderLogo.scss";
 
 @customElement("in-header-logo")

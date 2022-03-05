@@ -1,14 +1,11 @@
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
-
-import CommonElement from "../_base_/commonElement";
-
+import CommonElement from "../base/commonElement";
 import "./inToggleDark.scss";
 
 @customElement("in-toggle-dark")
 export default class InToggleDark extends CommonElement {
-  @property({ type: Boolean })
-  isThemeLight = true;
+  static readonly CLICK = "in-button-hamburger.click";
 
   @property({ type: Boolean })
   darkMode = false;
@@ -16,18 +13,14 @@ export default class InToggleDark extends CommonElement {
   onSwitchChangeHandler(event: Event): void {
     const path = event.composedPath();
     const input = path[0] as HTMLInputElement;
-    if (input.checked) {
-      window.document.body.classList.remove("dark");
-      //Utils.setLCS(AppConfig.LCS_THEME, "light");
-    } else {
-      window.document.body.classList.add("dark");
-      //Utils.setLCS(AppConfig.LCS_THEME, "dark");
-    }
-  }
-
-  connectedCallback(): void {
-    super.connectedCallback();
-    //if (Utils.getLCS(AppConfig.LCS_THEME) === "dark") this.isThemeLight = false;
+    this._dispatchData(
+      {
+        data: {
+          toggle: input.checked,
+        },
+      },
+      InToggleDark.CLICK
+    );
   }
 
   render(): TemplateResult {
@@ -40,7 +33,7 @@ export default class InToggleDark extends CommonElement {
             aria-label="This input for Toggle Dark or Light Mode"
             @change="${this.onSwitchChangeHandler}"
             type="checkbox"
-            ?checked=${this.isThemeLight}
+            ?checked=${!this.darkMode}
           />
           <span class="slider round"></span>
           <div

@@ -7,6 +7,7 @@ const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const pwaPlugin = require("./pwa/pwa-plugin");
 
@@ -107,6 +108,7 @@ const config = {
     ],
   },
   resolve: {
+    plugins: [new TsconfigPathsPlugin()],
     extensions: [".tsx", ".ts", ".js"],
   },
 };

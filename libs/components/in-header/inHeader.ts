@@ -1,21 +1,21 @@
 import { html, nothing, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
-
-import ScrollElement from "../_base_/scrollElement";
-import InButtonHamburger from "../in-button-hamburger/inButtonHamburger";
-import InHeaderNavItem from "../in-header-nav-item/inHeaderNavItem";
+import { classMap } from "lit/directives/class-map.js";
 import { InNavigationModel } from "../../data/model/models";
-
+import ScrollElement from "../base/scrollElement";
 import "../in-button-hamburger/inButtonHamburger";
+import InButtonHamburger from "../in-button-hamburger/inButtonHamburger";
 import "../in-header-logo/inHeaderLogo";
+import InHeaderNavItem from "../in-header-nav-item/inHeaderNavItem";
 import "../in-header-nav/inHeaderNav";
 import "../in-toogle-dark/inToggleDark";
-
+import InToggleDark from "../in-toogle-dark/inToggleDark";
 import "./inHeader.scss";
 
 @customElement("in-header")
 export default class InHeader extends ScrollElement {
   static readonly DRAWER_CHANGE = "in-header.drawer_change";
+  static readonly TOGGLE_DARK_CHANGE = "in-header.toggle_dark_change";
 
   @property({ type: String })
   title = "";
@@ -28,6 +28,9 @@ export default class InHeader extends ScrollElement {
 
   @property({ type: Boolean })
   isDrawerOpen = false;
+
+  @property({ type: Boolean })
+  darkMode = false;
 
   @property({ type: Boolean })
   supportDarkMode = false;
@@ -56,6 +59,18 @@ export default class InHeader extends ScrollElement {
     );
   }
 
+  dispatchToggleDarkState(state: boolean) {
+    this.darkMode = state;
+    this._dispatchData(
+      {
+        data: {
+          toggle: state,
+        },
+      },
+      InHeader.TOGGLE_DARK_CHANGE
+    );
+  }
+
   onResizeHandler = (): void => {
     this.onScrollHandler();
     this.dispatchDrawerState(false);
@@ -65,7 +80,12 @@ export default class InHeader extends ScrollElement {
     const details = (event as CustomEvent).detail;
     if (details.data.drawer === undefined) return;
     this.dispatchDrawerState(details.data.drawer);
-    this.querySelector("in-header-nav")?.requestUpdate();
+  }
+
+  onToggleDarkChangeHandler(event: Event): void {
+    const details = (event as CustomEvent).detail;
+    if (details.data.toggle === undefined) return;
+    this.dispatchToggleDarkState(details.data.toggle);
   }
 
   connectedCallback(): void {
@@ -81,6 +101,11 @@ export default class InHeader extends ScrollElement {
       this.onDrawerChangeHandler,
       false
     );
+    this.addEventListener(
+      InToggleDark.CLICK,
+      this.onToggleDarkChangeHandler,
+      false
+    );
   }
 
   disconnectedCallback(): void {
@@ -94,37 +119,33 @@ export default class InHeader extends ScrollElement {
       this.onDrawerChangeHandler,
       false
     );
+    this.removeEventListener(
+      InToggleDark.CLICK,
+      this.onToggleDarkChangeHandler,
+      false
+    );
     window.removeEventListener("resize", this.onResizeHandler, false);
     super.disconnectedCallback();
   }
 
   render(): TemplateResult {
-    const inHeaderSTyle = [
-      "container-fluid",
-      "position-fixed",
-      "d-flex",
-      "align-items-center",
-      "p-2",
-      !this.isShow ? "hide" : "",
-    ].join(" ");
-
-    const headerStyle = [
-      "d-flex",
-      "align-items-center",
-      "w-100",
-      "my-auto",
-      "mx-auto",
-      "ps-3",
-      "pe-2",
-    ].join(" ");
-
+    const hide = { open: this.isDrawerOpen };
     return html`
-      <div class="in-header ${inHeaderSTyle}">
-        <header class="header ${headerStyle}">
+      <div
+        class="in-header container-fluid position-fixed d-flex align-items-center p-2 ${classMap(
+          hide
+        )}"
+      >
+        <header
+          class="header d-flex align-items-center w-100 my-auto mx-auto ps-3 pe-2"
+        >
           <in-header-logo title=${this.title}></in-header-logo>
 
           ${this.supportDarkMode
-            ? html`<in-toggle-dark class="ms-auto"></in-toggle-dark>`
+            ? html`<in-toggle-dark
+                ?darkMode=${this.darkMode}
+                class="ms-auto"
+              ></in-toggle-dark>`
             : nothing}
 
           <in-button-hamburger

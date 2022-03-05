@@ -1,8 +1,6 @@
 import { html, TemplateResult } from "lit";
 import { customElement } from "lit/decorators.js";
-
-import ScrollElement from "../_base_/scrollElement";
-
+import ScrollElement from "../base/scrollElement";
 import "./inToTop.scss";
 
 @customElement("in-to-top")

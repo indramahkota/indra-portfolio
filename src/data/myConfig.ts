@@ -1,6 +1,10 @@
-import { InNavigationModel, InSocialMediaModel, InUserModel } from "../../libs/data/model/models";
 import userImageUrl from "../../libs/assets/images/avatars/profile.webp";
 import userImageUrlRound from "../../libs/assets/images/avatars/profile_round_60.webp";
+import {
+  InNavigationModel,
+  InSocialMediaModel,
+  InUserModel
+} from "../../libs/data/model/models";
 
 export default class AppConfig {
   static readonly APP_NAME: string = "My Portfolio";

@@ -1,8 +1,7 @@
+import CommonElement from "@in/base/commonElement";
+import "@in/in-profile/inProfile";
 import { html } from "lit";
 import { customElement } from "lit/decorators.js";
-import CommonElement from "../../../../libs/components/_base_/commonElement";
-
-import "../../../../libs/components/in-profile/inProfile";
 import AppConfig from "../../../data/myConfig";
 
 @customElement("page-landing")

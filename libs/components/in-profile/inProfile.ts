@@ -1,9 +1,7 @@
 import { html, nothing, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
-
-import CommonElement from "../_base_/commonElement";
 import { InSocialMediaModel, InUserModel } from "../../data/model/models";
-
+import CommonElement from "../base/commonElement";
 import "../in-social-media/inSocialMedia";
 import "./inProfile.scss";
 

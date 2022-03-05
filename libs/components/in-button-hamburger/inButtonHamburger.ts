@@ -1,8 +1,7 @@
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
-
-import CommonElement from "../_base_/commonElement";
-
+import { classMap } from "lit/directives/class-map.js";
+import CommonElement from "../base/commonElement";
 import "./inButtonHamburger.scss";
 
 @customElement("in-button-hamburger")
@@ -25,21 +24,14 @@ export default class InButtonHamburger extends CommonElement {
   }
 
   render(): TemplateResult {
-    const buttonStyle = [
-      "pe-auto",
-      "ms-auto",
-      "border-none",
-      "background-none",
-      "user-select-none",
-      "text-decoration-none",
-      this.isDrawerOpen ? "open" : "",
-    ].join(" ");
-
+    const open = { open: this.isDrawerOpen };
     return html`
       <div class="in-button-hamburger">
         <button
+          class="pe-auto ms-auto border-none background-none user-select-none text-decoration-none ${classMap(
+            open
+          )}"
           aria-label="Toggle Menu Button"
-          class="${buttonStyle}"
           @click="${this.onHamburgerClickHandler}"
         >
           <span class="humburger"></span>
