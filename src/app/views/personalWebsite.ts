@@ -11,7 +11,7 @@ import "./pages/pageLanding";
 @customElement("indramahkota-personal-website")
 export class PersonalWebsite extends CommonElement {
   @state()
-  _lightMode: boolean;
+  _isDarkMode: boolean;
 
   @state()
   _isDrawerOpen: boolean;
@@ -20,10 +20,10 @@ export class PersonalWebsite extends CommonElement {
     super();
     if (Utils.getLCS(AppConfig.LCS_THEME) === "dark") {
       window.document.body.classList.add("dark");
-      this._lightMode = true;
+      this._isDarkMode = true;
     } else {
       window.document.body.classList.remove("dark");
-      this._lightMode = false;
+      this._isDarkMode = false;
     }
 
     if (Utils.getLCS(AppConfig.LCS_DRAWER) === "open")
@@ -44,11 +44,11 @@ export class PersonalWebsite extends CommonElement {
     if (details.data.toggle) {
       window.document.body.classList.remove("dark");
       Utils.setLCS(AppConfig.LCS_THEME, "light");
-      this._lightMode = true;
+      this._isDarkMode = true;
     } else {
       window.document.body.classList.add("dark");
       Utils.setLCS(AppConfig.LCS_THEME, "dark");
-      this._lightMode = false;
+      this._isDarkMode = false;
     }
   }
 
@@ -81,13 +81,12 @@ export class PersonalWebsite extends CommonElement {
   }
 
   render() {
-    console.log("page: " + this._lightMode);
     return html`
       <in-header
         title=${AppConfig.APP_NAME}
         ?supportDarkMode=${true}
         .navData=${AppConfig.APP_NAVIGATION}
-        ?lightMode=${this._lightMode}
+        ?lightMode=${this._isDarkMode}
         ?isDrawerOpen=${this._isDrawerOpen}
       ></in-header>
       <main id="content">
