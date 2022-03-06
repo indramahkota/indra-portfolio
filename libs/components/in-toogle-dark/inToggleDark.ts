@@ -8,7 +8,7 @@ export default class InToggleDark extends CommonElement {
   static readonly CLICK = "in-button-hamburger.click";
 
   @property({ type: Boolean })
-  darkMode = false;
+  lightMode = false;
 
   onSwitchChangeHandler(event: Event): void {
     const path = event.composedPath();
@@ -33,7 +33,7 @@ export default class InToggleDark extends CommonElement {
             aria-label="This input for Toggle Dark or Light Mode"
             @change="${this.onSwitchChangeHandler}"
             type="checkbox"
-            ?checked=${!this.darkMode}
+            ?checked=${!this.lightMode}
           />
           <span class="slider round"></span>
           <div

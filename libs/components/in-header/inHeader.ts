@@ -30,7 +30,7 @@ export default class InHeader extends ScrollElement {
   isDrawerOpen = false;
 
   @property({ type: Boolean })
-  darkMode = false;
+  lightMode = false;
 
   @property({ type: Boolean })
   supportDarkMode = false;
@@ -60,7 +60,7 @@ export default class InHeader extends ScrollElement {
   }
 
   dispatchToggleDarkState(state: boolean) {
-    this.darkMode = state;
+    this.lightMode = state;
     this._dispatchData(
       {
         data: {
@@ -143,7 +143,7 @@ export default class InHeader extends ScrollElement {
 
           ${this.supportDarkMode
             ? html`<in-toggle-dark
-                ?darkMode=${this.darkMode}
+                ?lightMode=${this.lightMode}
                 class="ms-auto"
               ></in-toggle-dark>`
             : nothing}
