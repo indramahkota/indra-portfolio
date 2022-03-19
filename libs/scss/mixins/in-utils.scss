@@ -1,0 +1,44 @@
+//---------------------------------------------
+// 1. Functions
+//---------------------------------------------
+
+@function neg($val) {
+  @return $val * -1;
+}
+
+//---------------------------------------------
+// 2. Mixins
+//---------------------------------------------
+
+@mixin wh($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin wh-min($width, $height) {
+  min-width: $width;
+  min-height: $height;
+}
+
+@mixin wh-inherit {
+  width: inherit;
+  height: inherit;
+}
+
+@mixin scale($scaleX, $scaleY) {
+  -webkit-transform: scale($scaleX, $scaleY);
+  -ms-transform: scale($scaleX, $scaleY);
+  transform: scale($scaleX, $scaleY);
+}
+
+@mixin translate-x($value) {
+  -webkit-transform: translateX($value);
+  -ms-transform: translateX($value);
+  transform: translateX($value);
+}
+
+@mixin translate-y($value) {
+  -webkit-transform: translateY($value);
+  -ms-transform: translateY($value);
+  transform: translateY($value);
+}

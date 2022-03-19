@@ -1,0 +1,88 @@
+//---------------------------------------------
+//
+//  Variables
+//
+//    1. Bootstrap Fonts
+//    2. Bootstrap Globals
+//    3. Bootstrap Colors
+//    4. Bootstrap Container Width
+//
+//---------------------------------------------
+
+//---------------------------------------------
+// 1. Bootstrap Fonts
+//---------------------------------------------
+
+$font-family-base: -apple-system, BlinkMacSystemFont, "Montserrat", sans-serif;
+
+//---------------------------------------------
+// 2. Bootstrap Globals
+//---------------------------------------------
+
+$enable-rounded: true;
+$enable-shadows: false;
+$enable-gradients: false;
+
+//---------------------------------------------
+// 3. Bootstrap Colors
+//---------------------------------------------
+
+$body-color: #000000; // The default text color
+
+$primary: #0d6efd;
+$secondary: #6c757d;
+$success: #198754;
+$info: #0dcaf0;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #212529;
+
+//---------------------------------------------
+// 4. Bootstrap Container Width
+//---------------------------------------------
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);
+
+//---------------------------------------------
+// 5. Additional Colors
+//---------------------------------------------
+
+// Light
+$light-for-text: #000000;
+$light-for-card: #ffffff;
+$light-for-background: #f1f1f1;
+$light-for-hero-background: rgba(255, 255, 255, 0.25);
+$light-for-background-shadow: rgba(0, 0, 0, 1);
+$light-for-gradient-weak: #eff1f3;
+$light-for-gradient-strong: #e2e2e2;
+$light-for-line: #d7d7d7;
+$light-for-input-border: rgba(0, 0, 0, 0.2);
+$light-button-color: #008cba;
+
+// Dark
+$dark-for-text: #ffffff;
+$dark-for-card: #3a3b3c;
+$dark-for-background: #18191a;
+$dark-for-hero-background: rgba(24, 25, 26, 0.25);
+$dark-for-background-shadow: rgba(255, 255, 255, 1);
+$dark-for-gradient-weak: #2e2e30;
+$dark-for-gradient-strong: #1d1d1f;
+$dark-for-line: #e2e2e2;
+$dark-for-input-border: rgba(249, 249, 250, 0.2);
+$dark-button-color: #2b6ca1;
+
+//---------------------------------------------
+// 5. Additional Constants
+//---------------------------------------------
+
+$header-height: 60px !default;
+$header-height-total: 77px !default;
+$button-height: 44px !default;
+$content-max-width: 928px !default;

@@ -1,5 +1,4 @@
 import "regenerator-runtime";
-import "./styles/Index.scss";
-import "./styles/Components.scss";
-import "./firebaseSetup.ts";
+import "../libs/scss/main.scss";
 import "./app/App.ts";
+

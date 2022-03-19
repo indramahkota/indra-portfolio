@@ -1,0 +1,94 @@
+//---------------------------------------------
+//
+//  Table of Contents
+//
+//    1. Basics
+//    2. Page Layout
+//    3. Components
+//
+//---------------------------------------------
+
+//---------------------------------------------
+// 1. Basics
+//---------------------------------------------
+
+@import "variables";
+@import "bootstrap";
+@import "fonts";
+
+//---------------------------------------------
+// 2. Page Layout
+//---------------------------------------------
+
+:root {
+  --color-text: #{$light-for-text};
+  --color-button: #{$light-button-color};
+  --color-line: #{$light-for-line};
+  --color-article-background: #{$light-for-card};
+  --color-page-background: #{$light-for-background};
+  --color-hero-background: #{$light-for-hero-background};
+  --color-background-shadow: #{$light-for-background-shadow};
+  --color-shimmer-gradient-weak: #{$light-for-gradient-weak};
+  --color-shimmer-gradient-strong: #{$light-for-gradient-strong};
+  --color-input-border: #{$light-for-input-border};
+}
+
+.dark {
+  --color-text: #{$dark-for-text};
+  --color-button: #{$dark-button-color};
+  --color-line: #{$dark-for-line};
+  --color-article-background: #{$dark-for-card};
+  --color-page-background: #{$dark-for-background};
+  --color-hero-background: #{$dark-for-hero-background};
+  --color-background-shadow: #{$dark-for-background-shadow};
+  --color-shimmer-gradient-weak: #{$dark-for-gradient-weak};
+  --color-shimmer-gradient-strong: #{$dark-for-gradient-strong};
+  --color-input-border: #{$dark-for-input-border};
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+body {
+  height: 100%;
+  background-color: var(--color-page-background);
+  font: 16px / normal Montserrat, "Montserrat", sans-serif;
+}
+
+#content {
+  margin-top: 72px;
+}
+
+//---------------------------------------------
+// 3. Additional Class
+//---------------------------------------------
+
+.f-pacifico {
+  font-family: "Pacifico", cursive;
+}
+
+.default-text-color {
+  color: var(--color-text);
+}
+
+.border-none {
+  border: none;
+}
+
+.background-none {
+  background: none;
+}
+
+//---------------------------------------------
+// 4. Components
+//---------------------------------------------
+
+// @import "components/slider";

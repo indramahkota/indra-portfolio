@@ -1,0 +1,54 @@
+//---------------------------------------------
+//
+//  Mixin: Google Fonts
+//
+//    1. Google's names for font files
+//    2. Loading a single font
+//    3. Loading multiple fonts
+//
+//---------------------------------------------
+
+//---------------------------------------------
+// 1. Google's names for font files
+//---------------------------------------------
+
+$fontWeightNames: (
+  100: "Thin",
+  200: "ExtraLight",
+  300: "Light",
+  400: "Regular",
+  500: "Medium",
+  600: "SemiBold",
+  700: "Bold",
+);
+
+//---------------------------------------------
+// 2. Loading a single font
+//---------------------------------------------
+
+@mixin googleFont($font) {
+  $fontFamily: map-get($font, "name");
+  $fontStyle: map-get($font, "style");
+  $folderName: map-get($font, "folder");
+  $fileName: map-get($font, "files");
+  $weights: map-get($font, "weights");
+  @each $weight in $weights {
+    @font-face {
+      font-family: "#{$fontFamily}";
+      font-style: $fontStyle;
+      font-weight: $weight;
+      font-display: swap;
+      src: url("/static/fonts/#{$folderName}/#{$fileName}.woff2") format("woff2");
+    }
+  }
+}
+
+//---------------------------------------------
+// 3. Loading multiple fonts
+//---------------------------------------------
+
+@mixin googleFonts($fonts) {
+  @each $font in $fonts {
+    @include googleFont($font);
+  }
+}

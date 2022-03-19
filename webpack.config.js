@@ -3,9 +3,11 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const pwaPlugin = require("./pwa/pwa-plugin");
 
@@ -35,7 +37,7 @@ const config = {
   entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].[contenthash:8].js",
+    filename: "static/js/[contenthash:16].js",
     publicPath: ASSET_PATH,
   },
   devServer: {
@@ -72,20 +74,41 @@ const config = {
         exclude: ["/node_modules/"],
       },
       {
-        test: /\.css$/i,
-        use: [stylesHandler, "css-loader"],
+        test: /\.(sa|sc|c)ss$/i,
+        use: [
+          stylesHandler,
+          {
+            loader: "css-loader",
+            options: {
+              url: false,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  'autoprefixer',
+                ]
+              }
+            }
+          },
+          "sass-loader"
+        ],
       },
       {
-        test: /\.s[ac]ss$/i,
-        use: [stylesHandler, "css-loader", "sass-loader"],
-      },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif|webp|)$/i,
-        type: "asset",
+        test: /\.(svg|png|jpg|webp|)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: { name: 'static/images/[contenthash:16].[ext]' }
+          }
+        ]
       },
     ],
   },
   resolve: {
+    plugins: [new TsconfigPathsPlugin()],
     extensions: [".tsx", ".ts", ".js"],
   },
 };
@@ -98,7 +121,9 @@ module.exports = () => {
       sw: path.resolve(__dirname, "src/sw.ts"),
     };
 
-    config.plugins.push(new MiniCssExtractPlugin());
+    config.plugins.push(new MiniCssExtractPlugin({
+      filename: 'static/css/[contenthash:16].css'
+    }));
     config.plugins.push(
       new ImageMinimizerPlugin({
         minimizer: {
@@ -125,6 +150,9 @@ module.exports = () => {
     config.optimization = {
       minimize: true,
       minimizer: [
+        new ESBuildMinifyPlugin({
+          css: true
+        }),
         new TerserPlugin({
           terserOptions: {
             compress: {
@@ -132,6 +160,9 @@ module.exports = () => {
             },
             mangle: true,
             module: false,
+            output: {
+              comments: false,
+            },
           },
           extractComments: true,
         }),

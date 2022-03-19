@@ -1,0 +1,78 @@
+//---------------------------------------------
+// 1. Functions
+//---------------------------------------------
+
+@import "~bootstrap/scss/functions";
+
+//---------------------------------------------
+// 2. Variables
+//---------------------------------------------
+
+@import "~bootstrap/scss/variables";
+
+//---------------------------------------------
+// 3. Mixins
+//---------------------------------------------
+
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+//---------------------------------------------
+// 4. Additional
+//---------------------------------------------
+
+@import "../../scss/mixins/in-utils.scss";
+@import "../../scss/variables.scss";
+
+.in-header-nav-item {
+  a {
+    padding: 0 10px;
+    min-height: 44px;
+    text-decoration: none;
+    color: var(--color-text);
+
+    &.active {
+      background-color: var(--color-page-background);
+    }
+
+    .chevron {
+      @include wh(0.45em, 0.45em);
+
+      border-style: solid;
+      border-width: 0.12em 0.12em 0 0;
+      transform: rotate(45deg);
+    }
+
+    img {
+      @include wh(34px, 34px);
+      margin-right: 10px;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin: auto auto auto 0;
+    }
+  }
+}
+
+@media screen and (min-width: 810px) {
+  .in-header-nav-item {
+    a {
+      border-radius: 100px;
+
+      .chevron {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (hover: hover) {
+  .in-header-nav-item {
+    a {
+      &:hover {
+        background-color: var(--color-page-background);
+      }
+    }
+  }
+}
