@@ -27,7 +27,7 @@ export default class InHeaderNavItem extends CommonElement {
 
   render(): TemplateResult {
     if (!this.navItem) return html`${nothing}`;
-    const active = { open: this.navItem.isActive };
+    const active = { active: this.navItem.isActive };
     return html`
       <div class="in-header-nav-item">
         <a
