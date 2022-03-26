@@ -1,5 +1,5 @@
+import { CommonElement } from "@in/main";
 import { html, TemplateResult } from "lit";
-import CommonElement from "../commonElement";
 
 type Constructor<T> = new (...args: any[]) => T;
 

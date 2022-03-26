@@ -1,10 +1,9 @@
-import CommonElement from "@in/base/commonElement";
-import { Card } from "@in/base/mixins/cardMixin";
+import { Card, CommonElement } from "@in/main";
 import { html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 @customElement("in-greeting")
-export class InGreeting extends Card(CommonElement) {
+export default class InGreeting extends Card(CommonElement) {
   // Properties
   @property({ type: String })
   greeting = "";
@@ -20,12 +19,5 @@ export class InGreeting extends Card(CommonElement) {
         <p class="card-text">${this.description}</p>
       </div>
     `);
-  }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare global {
-  interface HTMLElementTagNameMap {
-    "in-greeting": InGreeting;
   }
 }

@@ -1,6 +1,6 @@
+import { ScrollElement } from "@in/main";
 import { html, TemplateResult } from "lit";
 import { customElement } from "lit/decorators.js";
-import ScrollElement from "../base/scrollElement";
 
 @customElement("in-to-top")
 export default class InToTop extends ScrollElement {
@@ -34,12 +34,5 @@ export default class InToTop extends ScrollElement {
         <i class="fas fa-hand-point-up"></i>
       </button>
     `;
-  }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare global {
-  interface HTMLElementTagNameMap {
-    "in-to-top": InToTop;
   }
 }

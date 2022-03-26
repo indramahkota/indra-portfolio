@@ -1,6 +1,4 @@
-import CommonElement from "@in/base/commonElement";
-import "@in/in-footer/inFooter";
-import "@in/in-header/inHeader";
+import { CommonElement } from "@in/main";
 import { html } from "lit";
 import { customElement } from "lit/decorators.js";
 import AppConfig from "../../data/myConfig";
@@ -19,12 +17,5 @@ export class PersonalWebsite extends CommonElement {
       </main>
       <in-footer text=${AppConfig.TEXT_FOOTER}></in-footer>
     `;
-  }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare global {
-  interface HTMLElementTagNameMap {
-    "indramahkota-personal-website": PersonalWebsite;
   }
 }

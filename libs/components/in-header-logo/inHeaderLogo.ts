@@ -1,6 +1,6 @@
+import { CommonElement } from "@in/main";
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import CommonElement from "../base/commonElement";
 
 @customElement("in-header-logo")
 export default class InHeaderLogo extends CommonElement {
@@ -16,12 +16,5 @@ export default class InHeaderLogo extends CommonElement {
         </a>
       </div>
     `;
-  }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare global {
-  interface HTMLElementTagNameMap {
-    "in-header-logo": InHeaderLogo;
   }
 }

@@ -1,7 +1,7 @@
+import { CommonElement } from "@in/main";
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import CommonElement from "../base/commonElement";
 
 @customElement("in-button-hamburger")
 export default class InButtonHamburger extends CommonElement {
@@ -32,12 +32,5 @@ export default class InButtonHamburger extends CommonElement {
         </button>
       </div>
     `;
-  }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare global {
-  interface HTMLElementTagNameMap {
-    "in-button-hamburger": InButtonHamburger;
   }
 }

@@ -1,11 +1,9 @@
+import { InNavigationModel } from "@in/data/models";
+import { CommonElement } from "@in/main";
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { repeat } from "lit/directives/repeat.js";
-import { InNavigationModel } from "../../data/model/models";
-import CommonElement from "../base/commonElement";
-import "../in-header-nav-item/inHeaderNavItem";
-
 @customElement("in-header-nav")
 export default class InHeaderNav extends CommonElement {
   // Properties
@@ -37,12 +35,5 @@ export default class InHeaderNav extends CommonElement {
         </nav>
       </div>
     `;
-  }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare global {
-  interface HTMLElementTagNameMap {
-    "in-header-nav": InHeaderNav;
   }
 }

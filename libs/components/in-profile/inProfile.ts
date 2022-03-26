@@ -1,9 +1,7 @@
-import { Card } from "@in/base/mixins/cardMixin";
+import { InSocialMediaModel, InUserModel } from "@in/data/models";
+import { Card, CommonElement } from "@in/main";
 import { html, nothing } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { InSocialMediaModel, InUserModel } from "../../data/model/models";
-import CommonElement from "../base/commonElement";
-import "../in-social-media/inSocialMedia";
 
 @customElement("in-profile")
 export default class InProfile extends Card(CommonElement) {
@@ -37,12 +35,5 @@ export default class InProfile extends Card(CommonElement) {
         </div>
       </div>
     </div>`);
-  }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare global {
-  interface HTMLElementTagNameMap {
-    "in-profile": InProfile;
   }
 }

@@ -1,6 +1,6 @@
+import { CommonElement } from "@in/main";
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import CommonElement from "../base/commonElement";
 
 @customElement("in-footer")
 export default class InFooter extends CommonElement {
@@ -16,12 +16,5 @@ export default class InFooter extends CommonElement {
         </footer>
       </div>
     `;
-  }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare global {
-  interface HTMLElementTagNameMap {
-    "in-footer": InFooter;
   }
 }

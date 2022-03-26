@@ -1,15 +1,8 @@
-import Config from "@in/base/utils/Config";
-import Utils from "@in/base/utils/Utils";
+import { InNavigationModel } from "@in/data/models";
+import { Config, ScrollElement, Utils } from "@in/main";
 import { html, nothing, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import { InNavigationModel } from "../../data/model/models";
-import ScrollElement from "../base/scrollElement";
-import "../in-button-hamburger/inButtonHamburger";
-import "../in-header-logo/inHeaderLogo";
-import "../in-header-nav/inHeaderNav";
-import "../in-toogle-dark/inToggleDark";
-
 @customElement("in-header")
 export default class InHeader extends ScrollElement {
   // Properties
@@ -101,12 +94,5 @@ export default class InHeader extends ScrollElement {
         </header>
       </div>
     `;
-  }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare global {
-  interface HTMLElementTagNameMap {
-    "in-header": InHeader;
   }
 }

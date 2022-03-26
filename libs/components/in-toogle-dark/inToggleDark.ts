@@ -1,8 +1,6 @@
-import Config from "@in/base/utils/Config";
-import Utils from "@in/base/utils/Utils";
+import { CommonElement, Config, Utils } from "@in/main";
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import CommonElement from "../base/commonElement";
 
 @customElement("in-toggle-dark")
 export default class InToggleDark extends CommonElement {
@@ -59,12 +57,5 @@ export default class InToggleDark extends CommonElement {
         </label>
       </div>
     `;
-  }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare global {
-  interface HTMLElementTagNameMap {
-    "in-toggle-dark": InToggleDark;
   }
 }

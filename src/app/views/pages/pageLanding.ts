@@ -1,6 +1,4 @@
-import CommonElement from "@in/base/commonElement";
-import "@in/in-greeting/inGreeting";
-import "@in/in-profile/inProfile";
+import { CommonElement } from "@in/main";
 import { html } from "lit";
 import { customElement } from "lit/decorators.js";
 import AppConfig from "../../../data/myConfig";
@@ -18,12 +16,5 @@ export class LandingPage extends CommonElement {
         .socialMedia=${AppConfig.APP_SOCIAL_MEDIA}
       ></in-profile>
     `;
-  }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare global {
-  interface HTMLElementTagNameMap {
-    "page-landing": LandingPage;
   }
 }

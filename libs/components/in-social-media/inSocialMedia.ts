@@ -1,7 +1,7 @@
+import { InSocialMediaModel } from "@in/data/models";
+import { CommonElement } from "@in/main";
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { InSocialMediaModel } from "../../data/model/models";
-import CommonElement from "../base/commonElement";
 
 @customElement("in-social-media")
 export default class InSocialMedia extends CommonElement {
@@ -40,12 +40,5 @@ export default class InSocialMedia extends CommonElement {
         </ul>
       </div>
     `;
-  }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare global {
-  interface HTMLElementTagNameMap {
-    "in-social-media": InSocialMedia;
   }
 }
