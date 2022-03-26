@@ -20,7 +20,7 @@ export default class InSocialMedia extends CommonElement {
           href="${data.url}"
           target="_blank"
           rel="noopener noreferrer"
-          class="d-flex rounded-circle fs-3 text-decoration-none"
+          class="d-flex rounded-circle fs-4 text-decoration-none"
         >
           <i
             class="${data.icon} m-auto rounded-circle hover-black
@@ -34,7 +34,7 @@ export default class InSocialMedia extends CommonElement {
 
   render(): TemplateResult {
     return html`
-      <div class="d-flex fs-3">
+      <div class="d-flex fs-3 mt-2">
         <ul class="d-flex flex-row mx-auto ms-md-0">
           ${this.socialMedia.map((sm) => this.renderSocialMedia(sm))}
         </ul>

@@ -22,7 +22,8 @@ export default class InToggleDark extends CommonElement {
     return html`
       <div class="in-toggle-dark">
         <label
-          class="in-toggle-label position-relative d-flex align-items-center justify-content-between"
+          class="in-toggle-label position-relative
+            d-flex align-items-center justify-content-between"
         >
           <input
             aria-label="This input for Toggle Dark or Light Mode"
@@ -32,10 +33,11 @@ export default class InToggleDark extends CommonElement {
           />
           <span class="slider round"></span>
           <div
-            class="in-toggle-icon d-flex justify-content-between position-absolute"
+            class="in-toggle-icon d-flex justify-content-between
+              position-absolute"
           >
-            <i class="fas fa-sun"></i>
-            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun my-auto ms-1"></i>
+            <i class="fas fa-moon my-auto me-1"></i>
           </div>
         </label>
       </div>

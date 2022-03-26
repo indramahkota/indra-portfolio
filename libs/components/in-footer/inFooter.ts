@@ -10,7 +10,7 @@ export default class InFooter extends CommonElement {
 
   render(): TemplateResult {
     return html`
-      <div class="in-footer p-3 mt-3 text-center text-default divider-top">
+      <div class="in-footer p-3 mt-5 text-center text-default divider-top">
         <footer class="w-100">
           <p tabindex="0">${this.text}</p>
         </footer>

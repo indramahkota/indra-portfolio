@@ -14,9 +14,9 @@ export class InGreeting extends Card(CommonElement) {
   render() {
     return this.renderCard(html`
       <div class="card-body text-center text-md-start">
-        <h3 class="card-title">
+        <h2 class="card-title">
           ${this.greeting} <span class="wave-emoji">👋</span>
-        </h3>
+        </h2>
         <p class="card-text">${this.description}</p>
       </div>
     `);

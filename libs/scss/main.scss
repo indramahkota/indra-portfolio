@@ -160,11 +160,9 @@ body {
   transition: transform 0.2s ease-out;
   border-bottom: 1px solid var(--color-page-background);
   background-color: var(--color-article-background);
-
   &.hide {
     @include translate-x(neg($header-height-total));
   }
-
   .header {
     height: $header-height;
     max-width: $content-max-width;
@@ -185,14 +183,12 @@ body {
   button {
     @include wh-min($button-height, $button-height);
     padding: 20px 20px;
-
     .humburger {
       display: block;
       position: relative;
       background: var(--color-text);
       width: 18px;
       height: 2px;
-
       &:before,
       &:after {
         content: "";
@@ -203,25 +199,20 @@ body {
         height: 100%;
         transition: transform 0.2s ease-out;
       }
-
       &:before {
         top: 5px;
       }
-
       &:after {
         top: -5px;
       }
     }
-
     &.open {
       .humburger {
         background: transparent;
-
         &:before {
           top: 0;
           transform: rotate(-45deg);
         }
-
         &:after {
           top: 0;
           transform: rotate(45deg);
@@ -254,14 +245,11 @@ body {
     border-width: 0 0 0 0.12em;
     transition: all 0.2s ease-out;
     background-color: var(--color-article-background);
-
     &.open {
       @include translate-x(-300px);
     }
-
     ul {
       list-style: none;
-
       li {
         margin: 2px;
       }
@@ -277,7 +265,6 @@ body {
       min-height: auto;
       border: none;
       background-color: transparent;
-
       ul {
         list-style: none;
         display: flex;
@@ -296,24 +283,19 @@ body {
     min-height: 44px;
     text-decoration: none;
     color: var(--color-text);
-
     &.active {
       background-color: var(--color-page-background);
     }
-
     .chevron {
       @include wh(0.45em, 0.45em);
-
       border-style: solid;
       border-width: 0.12em 0.12em 0 0;
       transform: rotate(45deg);
     }
-
     img {
       @include wh(34px, 34px);
       margin-right: 10px;
     }
-
     p {
       font-size: 1.1em;
       margin: auto auto auto 0;
@@ -325,7 +307,6 @@ body {
   .in-header-nav-item {
     a {
       border-radius: 100px;
-
       .chevron {
         display: none;
       }
@@ -358,7 +339,6 @@ body {
   font-size: 25px;
   background-color: var(--color-button);
   transition: transform ease-in-out 0.2s;
-
   &.show {
     -webkit-transform: translateX(-160px);
     -ms-transform: translateX(-160px);
@@ -379,44 +359,34 @@ body {
 .in-toggle-dark {
   .in-toggle-label {
     @include wh(84px, 38px);
-
     input {
       @include wh(0, 0);
       @include scale(0, 0);
-
       &:checked + .slider {
         background-color: #2196f3;
       }
-
       &:checked + .slider:before {
         @include translate-x(46px);
       }
     }
-
     .in-toggle-icon {
       @include wh-inherit;
-
       padding: 7px;
-
       i {
-        font-size: 24px;
+        font-size: 18px;
         color: yellow;
         z-index: 1;
       }
     }
-
     .slider {
       @include wh-inherit;
-
       cursor: pointer;
       position: absolute;
       border: 2px solid white;
       -webkit-transition: transform 0.4s;
       transition: transform 0.4s;
-
       &:before {
         @include wh(26px, 26px);
-
         content: "";
         position: absolute;
         margin: 4px;
@@ -426,11 +396,9 @@ body {
         -webkit-transition: transform 0.4s ease-out;
         transition: transform 0.4s ease-out;
       }
-
       &.round {
         border-radius: 34px;
       }
-
       &.round:before {
         border-radius: 50%;
       }

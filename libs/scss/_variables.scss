@@ -28,7 +28,6 @@ $enable-gradients: false;
 //---------------------------------------------
 
 $body-color: #000000; // The default text color
-
 $primary: #0d6efd;
 $secondary: #6c757d;
 $success: #198754;
@@ -54,7 +53,7 @@ $container-max-widths: (
 // 5. Additional Colors
 //---------------------------------------------
 
-// Light
+// Light Colors
 $light-for-text: #000000;
 $light-for-card: #ffffff;
 $light-for-background: #f1f1f1;
@@ -66,7 +65,7 @@ $light-for-line: #d7d7d7;
 $light-for-input-border: rgba(0, 0, 0, 0.2);
 $light-button-color: #008cba;
 
-// Dark
+// Dark Colors
 $dark-for-text: #ffffff;
 $dark-for-card: #3a3b3c;
 $dark-for-background: #18191a;
@@ -82,17 +81,22 @@ $dark-button-color: #2b6ca1;
 // 5. Additional Constants
 //---------------------------------------------
 
+// Z Index
+$zindex-fixed: 999 !default;
+
+// Height
 $header-height: 60px !default;
 $header-height-total: 77px !default;
 $button-height: 44px !default;
 $content-max-width: 928px !default;
 
-// Card
+// Border Radius
 $border-radius: 0.25rem;
 $border-radius-sm: 0.2rem;
 $border-radius-lg: 0.5rem;
 $border-radius-pill: 50rem;
 
+// Card
 $card-border-width: 0;
 $card-border-radius: $border-radius-lg;
 $box-shadow: 0 0.25rem 0.5rem -0.25rem rgba(0, 0, 0, 0.2);

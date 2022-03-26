@@ -11,7 +11,7 @@ export const Card = <T extends Constructor<CommonElement>>(superClass: T) => {
   class CardElement extends superClass {
     renderCard(content: TemplateResult): TemplateResult {
       return html`<div
-        class="card m-3 mx-lg-auto shadow bg-default
+        class="card m-3 p-2 mx-lg-auto shadow bg-default
             text-default width-default"
       >
         ${content}
