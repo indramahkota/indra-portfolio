@@ -23,10 +23,18 @@ export default class InSocialMedia extends CommonElement {
           class="d-flex rounded-circle fs-4 text-decoration-none"
         >
           <i
-            class="${data.icon} m-auto rounded-circle hover-black
+            class="m-auto rounded-circle hover-black
                 d-flex align-items-center justify-content-center"
             style="color: white; width: 2em; height: 2em;"
-          ></i>
+          >
+            <img
+              class="m-auto"
+              src="${data.icon}"
+              width="20"
+              height="20"
+              alt="${data.name}"
+            />
+          </i>
         </a>
       </li>
     `;

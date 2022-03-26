@@ -1,5 +1,6 @@
-import userImageUrl from "@in/assets/images/avatars/profile.webp";
-import userImageUrlRound from "@in/assets/images/avatars/profile_round_60.webp";
+import userImageUrl from "@in/assets/webp/profile.webp";
+import userImageUrlRound from "@in/assets/webp/profile_round_60.webp";
+import Icons from "@in/base/utils/Icons";
 import {
   InNavigationModel,
   InSocialMediaModel,
@@ -58,35 +59,35 @@ export default class AppConfig {
       url: "https://github.com/indramahkota",
       isEmail: false,
       color: "#333",
-      icon: "fab fa-github",
+      icon: Icons.GITHUB,
     },
     {
       name: "linkedin",
       url: "https://www.linkedin.com/in/indramahkota",
       isEmail: false,
       color: "#0e76a8",
-      icon: "fab fa-linkedin-in",
+      icon: Icons.LINKEDIN,
     },
     {
       name: "google",
       url: "mailto:indramahkota1@gmail.com",
       isEmail: true,
       color: "#ea4335",
-      icon: "fab fa-google",
+      icon: Icons.GOOGLE,
     },
     {
       name: "gitlab",
       url: "https://gitlab.com/indramahkota",
       isEmail: false,
       color: "#fca326",
-      icon: "fab fa-gitlab",
+      icon: Icons.GITLAB,
     },
     {
       name: "facebook",
       url: "https://www.facebook.com/indramahkota.id",
       isEmail: false,
       color: "#3b5998",
-      icon: "fab fa-facebook-f",
+      icon: Icons.FACEBOOK,
     },
   ];
 

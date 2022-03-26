@@ -2,6 +2,7 @@ import CommonElement from "./base/commonElement";
 import { Card } from "./base/mixins/cardMixin";
 import ScrollElement from "./base/scrollElement";
 import Config from "./base/utils/Config";
+import Icons from "./base/utils/Icons";
 import Utils from "./base/utils/Utils";
 import InButtonHamburger from "./in-button-hamburger/inButtonHamburger";
 import InFooter from "./in-footer/inFooter";
@@ -40,6 +41,7 @@ declare global {
 export { Card };
 export { Config };
 export { Utils };
+export { Icons };
 export { CommonElement };
 export { ScrollElement };
 export {

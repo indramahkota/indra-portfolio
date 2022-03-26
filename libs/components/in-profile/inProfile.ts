@@ -27,7 +27,6 @@ export default class InProfile extends Card(CommonElement) {
         <div class="card-body text-center text-md-start">
           <h2 tabindex="0">${this.user.name}</h2>
           <div class="mt-2">
-            <i class="fas fa-map-marker-alt"></i>
             <span tabindex="0">${this.user.location}</span>
           </div>
           <p tabindex="0" class="mt-2">${this.user.status}</p>

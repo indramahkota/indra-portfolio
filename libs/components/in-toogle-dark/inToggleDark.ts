@@ -1,4 +1,4 @@
-import { CommonElement, Config, Utils } from "@in/main";
+import { CommonElement, Config, Icons, Utils } from "@in/main";
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
@@ -51,8 +51,20 @@ export default class InToggleDark extends CommonElement {
             class="in-toggle-icon d-flex justify-content-between
               position-absolute"
           >
-            <i class="fas fa-sun my-auto ms-1"></i>
-            <i class="fas fa-moon my-auto me-1"></i>
+            <img
+              class="my-auto ms-1"
+              src="${Icons.SUN}"
+              width="18"
+              height="18"
+              alt="Light mode"
+            />
+            <img
+              class="my-auto ms-1"
+              src="${Icons.MOON}"
+              width="18"
+              height="18"
+              alt="Dark mode"
+            />
           </div>
         </label>
       </div>
