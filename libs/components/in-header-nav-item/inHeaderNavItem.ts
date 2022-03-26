@@ -4,7 +4,6 @@ import { classMap } from "lit/directives/class-map.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { InNavigationModel } from "../../data/model/models";
 import CommonElement from "../base/commonElement";
-import "./inHeaderNavItem.scss";
 
 @customElement("in-header-nav-item")
 export default class InHeaderNavItem extends CommonElement {

@@ -1,54 +1,42 @@
-import { html, nothing, TemplateResult } from "lit";
+import { Card } from "@in/base/mixins/cardMixin";
+import { html, nothing } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { InSocialMediaModel, InUserModel } from "../../data/model/models";
 import CommonElement from "../base/commonElement";
 import "../in-social-media/inSocialMedia";
-import "./inProfile.scss";
 
 @customElement("in-profile")
-export default class InProfile extends CommonElement {
+export default class InProfile extends Card(CommonElement) {
   // Properties
-  @property({ type: String })
-  title = "PROFILE";
   @property({ type: Object })
   user: InUserModel | undefined;
   @property({ type: Array })
   socialMedia: InSocialMediaModel[] = [];
 
-  render(): TemplateResult {
+  render() {
     if (!this.user) return html`${nothing}`;
-    return html`
-      <div class="in-profile">
-        <div class="in-profile-main">
-          <div class="in-profile-content">
-            <div class="in-profile-details">
-              <h2 tabindex="0" class="in-profile-name">${this.user.name}</h2>
-              <div class="in-profile-location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span tabindex="0">${this.user.location}</span>
-              </div>
-              <div class="in-profile-hirable">
-                <p tabindex="0">${this.user.status}</p>
-              </div>
-              <div class="in-profile-media-social">
-                <in-social-media
-                  .socialMedia=${this.socialMedia}
-                ></in-social-media>
-              </div>
-            </div>
-            <div class="in-profile-image-container">
-              <img
-                width="200"
-                height="200"
-                class="in-profile-image"
-                src="${this.user.image}"
-                alt="Indra Mahkota, Developer who build this website"
-              />
-            </div>
+    return this.renderCard(html`<div class="row g-0">
+      <div class="col-md-4 order-md-last p-3 d-flex">
+        <img
+          src="${this.user.image}"
+          class="rounded-circle border-profile mx-auto me-md-0"
+          alt="${this.user.name}"
+          width="200px"
+          height="200px"
+        />
+      </div>
+      <div class="col-md-8 order-md-first d-flex">
+        <div class="card-body text-center text-md-start">
+          <h2 tabindex="0">${this.user.name}</h2>
+          <div>
+            <i class="fas fa-map-marker-alt"></i>
+            <span tabindex="0">${this.user.location}</span>
           </div>
+          <p tabindex="0">${this.user.status}</p>
+          <in-social-media .socialMedia=${this.socialMedia}></in-social-media>
         </div>
       </div>
-    `;
+    </div>`);
   }
 }
 

@@ -1,7 +1,6 @@
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import CommonElement from "../base/commonElement";
-import "./inFooter.scss";
 
 @customElement("in-footer")
 export default class InFooter extends CommonElement {
@@ -11,8 +10,8 @@ export default class InFooter extends CommonElement {
 
   render(): TemplateResult {
     return html`
-      <div class="in-footer">
-        <footer>
+      <div class="in-footer p-3 mt-3 text-center text-default divider-top">
+        <footer class="w-100">
           <p tabindex="0">${this.text}</p>
         </footer>
       </div>

@@ -2,7 +2,6 @@ import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import CommonElement from "../base/commonElement";
-import "./inButtonHamburger.scss";
 
 @customElement("in-button-hamburger")
 export default class InButtonHamburger extends CommonElement {

@@ -86,3 +86,13 @@ $header-height: 60px !default;
 $header-height-total: 77px !default;
 $button-height: 44px !default;
 $content-max-width: 928px !default;
+
+// Card
+$border-radius: 0.25rem;
+$border-radius-sm: 0.2rem;
+$border-radius-lg: 0.5rem;
+$border-radius-pill: 50rem;
+
+$card-border-width: 0;
+$card-border-radius: $border-radius-lg;
+$box-shadow: 0 0.25rem 0.5rem -0.25rem rgba(0, 0, 0, 0.2);

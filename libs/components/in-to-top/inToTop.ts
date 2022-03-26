@@ -1,7 +1,6 @@
 import { html, TemplateResult } from "lit";
 import { customElement } from "lit/decorators.js";
 import ScrollElement from "../base/scrollElement";
-import "./inToTop.scss";
 
 @customElement("in-to-top")
 export default class InToTop extends ScrollElement {
@@ -27,7 +26,7 @@ export default class InToTop extends ScrollElement {
     return html`
       <button
         id="top-button"
-        class="goTopButton"
+        class="in-to-top"
         aria-label="Go to top Button"
         title="Go to top"
         @click="${this.onButtonClickHandler}"

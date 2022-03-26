@@ -38,7 +38,7 @@ export class PersonalWebsite extends CommonElement {
       <in-header
         title=${AppConfig.APP_NAME}
         .navData=${AppConfig.APP_NAVIGATION}
-        ?lightMode=${this._isDarkMode}
+        ?darkMode=${this._isDarkMode}
         ?isDrawerOpen=${this._isDrawerOpen}
         .onToggleDark=${this.onToggleDark}
         .onDrawerChange=${this.onDrawerChange}

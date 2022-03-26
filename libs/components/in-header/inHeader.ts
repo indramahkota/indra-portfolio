@@ -7,7 +7,6 @@ import "../in-button-hamburger/inButtonHamburger";
 import "../in-header-logo/inHeaderLogo";
 import "../in-header-nav/inHeaderNav";
 import "../in-toogle-dark/inToggleDark";
-import "./inHeader.scss";
 
 @customElement("in-header")
 export default class InHeader extends ScrollElement {
@@ -21,7 +20,7 @@ export default class InHeader extends ScrollElement {
   @property({ type: Boolean })
   isDrawerOpen = false;
   @property({ type: Boolean })
-  lightMode = false;
+  darkMode = false;
   @property({ type: Boolean })
   supportDarkMode = true;
 
@@ -75,7 +74,7 @@ export default class InHeader extends ScrollElement {
           <!-- Dark Mode Toggle Button -->
           ${this.supportDarkMode
             ? html`<in-toggle-dark
-                ?darkMode=${this.lightMode}
+                ?darkMode=${this.darkMode}
                 .onToggleDark=${this.onToggleDark}
                 class="ms-auto"
               ></in-toggle-dark>`

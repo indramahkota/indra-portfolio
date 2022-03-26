@@ -1,7 +1,6 @@
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import CommonElement from "../base/commonElement";
-import "./inHeaderLogo.scss";
 
 @customElement("in-header-logo")
 export default class InHeaderLogo extends CommonElement {
@@ -11,11 +10,8 @@ export default class InHeaderLogo extends CommonElement {
 
   render(): TemplateResult {
     return html`
-      <div class="in-header-logo">
-        <a
-          class="fs-5 f-pacifico text-decoration-none default-text-color"
-          href="/"
-        >
+      <div>
+        <a class="fs-5 f-pacifico text-decoration-none text-default" href="/">
           ${this.title}
         </a>
       </div>

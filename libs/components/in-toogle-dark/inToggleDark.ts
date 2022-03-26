@@ -1,7 +1,6 @@
 import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import CommonElement from "../base/commonElement";
-import "./inToggleDark.scss";
 
 @customElement("in-toggle-dark")
 export default class InToggleDark extends CommonElement {

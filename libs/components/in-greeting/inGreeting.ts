@@ -1,10 +1,10 @@
 import CommonElement from "@in/base/commonElement";
+import { Card } from "@in/base/mixins/cardMixin";
 import { html } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import "./inGreeting.scss";
 
 @customElement("in-greeting")
-export class InGreeting extends CommonElement {
+export class InGreeting extends Card(CommonElement) {
   // Properties
   @property({ type: String })
   greeting = "";
@@ -12,18 +12,14 @@ export class InGreeting extends CommonElement {
   description = "";
 
   render() {
-    return html`
-            <div class="in-greeting-container" id="greeting">
-                <div class="in-greeting-main">
-                    <h1 class="in-greeting-text">
-                        ${this.greeting}
-                        <span class="wave-emoji">👋</span>
-                    </h1>
-                    <p class="in-greeting-text in-greeting-desc">${this.description}</p>
-                    </div>
-                </div>
-            </div>
-        `;
+    return this.renderCard(html`
+      <div class="card-body text-center text-md-start">
+        <h3 class="card-title">
+          ${this.greeting} <span class="wave-emoji">👋</span>
+        </h3>
+        <p class="card-text">${this.description}</p>
+      </div>
+    `);
   }
 }
 

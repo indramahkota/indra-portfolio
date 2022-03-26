@@ -5,7 +5,6 @@ import { repeat } from "lit/directives/repeat.js";
 import { InNavigationModel } from "../../data/model/models";
 import CommonElement from "../base/commonElement";
 import "../in-header-nav-item/inHeaderNavItem";
-import "./inHeaderNav.scss";
 
 @customElement("in-header-nav")
 export default class InHeaderNav extends CommonElement {
