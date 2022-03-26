@@ -6,6 +6,7 @@ import "./inSocialMedia.scss";
 
 @customElement("in-social-media")
 export default class InSocialMedia extends CommonElement {
+  // Properties
   @property({ type: Array })
   socialMedia: InSocialMediaModel[] = [];
 

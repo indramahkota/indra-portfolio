@@ -5,6 +5,7 @@ import "./inHeaderLogo.scss";
 
 @customElement("in-header-logo")
 export default class InHeaderLogo extends CommonElement {
+  // Properties
   @property({ type: String })
   title = "";
 

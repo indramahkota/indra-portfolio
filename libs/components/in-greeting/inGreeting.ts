@@ -5,9 +5,9 @@ import "./inGreeting.scss";
 
 @customElement("in-greeting")
 export class InGreeting extends CommonElement {
+  // Properties
   @property({ type: String })
   greeting = "";
-
   @property({ type: String })
   description = "";
 

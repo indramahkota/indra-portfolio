@@ -5,6 +5,7 @@ import "./inFooter.scss";
 
 @customElement("in-footer")
 export default class InFooter extends CommonElement {
+  // Properties
   @property({ type: String })
   text = "";
 

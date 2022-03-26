@@ -7,12 +7,11 @@ import "./inProfile.scss";
 
 @customElement("in-profile")
 export default class InProfile extends CommonElement {
+  // Properties
   @property({ type: String })
   title = "PROFILE";
-
   @property({ type: Object })
   user: InUserModel | undefined;
-
   @property({ type: Array })
   socialMedia: InSocialMediaModel[] = [];
 

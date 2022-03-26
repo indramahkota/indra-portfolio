@@ -5,22 +5,18 @@ import "./inToggleDark.scss";
 
 @customElement("in-toggle-dark")
 export default class InToggleDark extends CommonElement {
-  static readonly CLICK = "in-button-hamburger.click";
-
+  // Properties
   @property({ type: Boolean })
-  lightMode = false;
+  darkMode = false;
+
+  // Methods
+  @property({ type: Object })
+  onToggleDark = (_checked: boolean) => {};
 
   onSwitchChangeHandler(event: Event): void {
     const path = event.composedPath();
     const input = path[0] as HTMLInputElement;
-    this._dispatchData(
-      {
-        data: {
-          toggle: input.checked,
-        },
-      },
-      InToggleDark.CLICK
-    );
+    this.onToggleDark(input.checked);
   }
 
   render(): TemplateResult {
@@ -31,9 +27,9 @@ export default class InToggleDark extends CommonElement {
         >
           <input
             aria-label="This input for Toggle Dark or Light Mode"
-            @change="${this.onSwitchChangeHandler}"
+            @change=${this.onSwitchChangeHandler}
             type="checkbox"
-            ?checked=${!this.lightMode}
+            ?checked=${!this.darkMode}
           />
           <span class="slider round"></span>
           <div

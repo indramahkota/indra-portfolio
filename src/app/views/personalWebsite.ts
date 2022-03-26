@@ -1,7 +1,6 @@
 import CommonElement from "@in/base/commonElement";
 import "@in/in-footer/inFooter";
 import "@in/in-header/inHeader";
-import InHeader from "@in/in-header/inHeader";
 import { html } from "lit";
 import { customElement, state } from "lit/decorators.js";
 import AppConfig from "../../data/myConfig";
@@ -11,37 +10,19 @@ import "./pages/pageLanding";
 @customElement("indramahkota-personal-website")
 export class PersonalWebsite extends CommonElement {
   @state()
-  _isDarkMode: boolean;
+  _isDarkMode = false;
 
   @state()
-  _isDrawerOpen: boolean;
+  _isDrawerOpen = false;
 
-  constructor() {
-    super();
-    if (Utils.getLCS(AppConfig.LCS_THEME) === "dark") {
-      window.document.body.classList.add("dark");
-      this._isDarkMode = true;
-    } else {
-      window.document.body.classList.remove("dark");
-      this._isDarkMode = false;
-    }
-
-    if (Utils.getLCS(AppConfig.LCS_DRAWER) === "open")
-      this._isDrawerOpen = true;
-    else this._isDrawerOpen = false;
-  }
-
-  onDrawerChangeHandler(event: Event): void {
-    const details = (event as CustomEvent).detail;
-    if (details.data.drawer === undefined) return;
-    if (details.data.drawer) Utils.setLCS(AppConfig.LCS_DRAWER, "open");
+  onDrawerChange(open: boolean): void {
+    this._isDrawerOpen = open;
+    if (open) Utils.setLCS(AppConfig.LCS_DRAWER, "open");
     else Utils.setLCS(AppConfig.LCS_DRAWER, "close");
   }
 
-  onToggleDarkChangeHandler(event: Event): void {
-    const details = (event as CustomEvent).detail;
-    if (details.data.toggle === undefined) return;
-    if (details.data.toggle) {
+  onToggleDark(checked: boolean): void {
+    if (checked) {
       window.document.body.classList.remove("dark");
       Utils.setLCS(AppConfig.LCS_THEME, "light");
       this._isDarkMode = true;
@@ -52,42 +33,15 @@ export class PersonalWebsite extends CommonElement {
     }
   }
 
-  connectedCallback(): void {
-    super.connectedCallback();
-    this.addEventListener(
-      InHeader.DRAWER_CHANGE,
-      this.onDrawerChangeHandler,
-      false
-    );
-    this.addEventListener(
-      InHeader.TOGGLE_DARK_CHANGE,
-      this.onToggleDarkChangeHandler,
-      false
-    );
-  }
-
-  disconnectedCallback(): void {
-    this.removeEventListener(
-      InHeader.DRAWER_CHANGE,
-      this.onDrawerChangeHandler,
-      false
-    );
-    this.removeEventListener(
-      InHeader.TOGGLE_DARK_CHANGE,
-      this.onToggleDarkChangeHandler,
-      false
-    );
-    super.disconnectedCallback();
-  }
-
   render() {
     return html`
       <in-header
         title=${AppConfig.APP_NAME}
-        ?supportDarkMode=${true}
         .navData=${AppConfig.APP_NAVIGATION}
         ?lightMode=${this._isDarkMode}
         ?isDrawerOpen=${this._isDrawerOpen}
+        .onToggleDark=${this.onToggleDark}
+        .onDrawerChange=${this.onDrawerChange}
       ></in-header>
       <main id="content">
         <page-landing></page-landing>

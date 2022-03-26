@@ -8,21 +8,16 @@ import "./inHeaderNavItem.scss";
 
 @customElement("in-header-nav-item")
 export default class InHeaderNavItem extends CommonElement {
-  static readonly CLICK = "in-header-nav-item.click";
-
+  // Properties
   @property({ type: Object })
   navItem: InNavigationModel | undefined;
 
+  // Methods
+  @property({ type: Object })
+  onNavItemClicked = (_url: string) => {};
+
   onNavItemClickHandler(): void {
-    this._dispatchData(
-      {
-        data: {
-          url: this.navItem?.url,
-          drawer: false,
-        },
-      },
-      InHeaderNavItem.CLICK
-    );
+    this.onNavItemClicked(this.navItem?.url ?? "");
   }
 
   render(): TemplateResult {
@@ -32,9 +27,8 @@ export default class InHeaderNavItem extends CommonElement {
       <div class="in-header-nav-item">
         <a
           href="${this.navItem.url}"
-          class="d-flex justify-content-between-fixed align-items-center position-relative ${classMap(
-            active
-          )}"
+          class="d-flex justify-content-between-fixed align-items-center
+           position-relative ${classMap(active)}"
           @click="${this.onNavItemClickHandler}"
         >
           ${!this.navItem.imageUrl

@@ -5,14 +5,13 @@ import { repeat } from "lit/directives/repeat.js";
 import { InNavigationModel } from "../../data/model/models";
 import CommonElement from "../base/commonElement";
 import "../in-header-nav-item/inHeaderNavItem";
-import InHeaderNavItem from "../in-header-nav-item/inHeaderNavItem";
 import "./inHeaderNav.scss";
 
 @customElement("in-header-nav")
 export default class InHeaderNav extends CommonElement {
+  // Properties
   @property({ type: Array })
   navData: InNavigationModel[] = [];
-
   @property({ type: Boolean })
   isDrawerOpen = false;
 
@@ -20,20 +19,6 @@ export default class InHeaderNav extends CommonElement {
     super.connectedCallback();
     if (window.location.hash !== "")
       this.dataShouldUpdate(window.location.hash);
-    this.addEventListener(
-      InHeaderNavItem.CLICK,
-      this.onNavItemClickHandler,
-      false
-    );
-  }
-
-  disconnectedCallback(): void {
-    this.removeEventListener(
-      InHeaderNavItem.CLICK,
-      this.onNavItemClickHandler,
-      false
-    );
-    super.disconnectedCallback();
   }
 
   dataShouldUpdate(hash: string): void {
@@ -41,9 +26,6 @@ export default class InHeaderNav extends CommonElement {
       nav.isActive = nav.url === hash || false;
       return nav;
     });
-    this.querySelectorAll("in-header-nav-item").forEach((elm) =>
-      elm.requestUpdate()
-    );
   }
 
   onNavItemClickHandler(event: Event): void {
@@ -61,7 +43,10 @@ export default class InHeaderNav extends CommonElement {
             ${repeat(
               this.navData,
               (nav) => html`<li>
-                <in-header-nav-item .navItem=${nav}></in-header-nav-item>
+                <in-header-nav-item
+                  .navItem=${nav}
+                  .onNavItemClicked=${this.dataShouldUpdate}
+                ></in-header-nav-item>
               </li>`
             )}
           </ul>
