@@ -13,10 +13,31 @@ export default class InHeaderNavItem extends CommonElement {
 
   // Methods
   @property({ type: Object })
-  onNavItemClicked = (_url: string) => {};
+  onNavItemClicked = () => {};
 
-  onNavItemClickHandler(): void {
-    this.onNavItemClicked(this.navItem?.url ?? "");
+  onHashChange = (): void => {
+    if (this.navItem) {
+      window.location.hash == this.navItem.url
+        ? (this.navItem.isActive = true)
+        : (this.navItem.isActive = false);
+      this.requestUpdate();
+    }
+  };
+
+  connectedCallback(): void {
+    super.connectedCallback();
+    if (
+      this.navItem &&
+      (window.location.hash == this.navItem.url ||
+        (window.location.hash == "" && this.navItem.url == "#/profile"))
+    )
+      this.navItem.isActive = true;
+    window.addEventListener("hashchange", this.onHashChange, false);
+  }
+
+  disconnectedCallback(): void {
+    window.removeEventListener("hashchange", this.onHashChange, false);
+    super.disconnectedCallback();
   }
 
   render(): TemplateResult {
@@ -28,7 +49,7 @@ export default class InHeaderNavItem extends CommonElement {
           href="${this.navItem.url}"
           class="d-flex justify-content-between-fixed align-items-center
            position-relative ${classMap(active)}"
-          @click="${this.onNavItemClickHandler}"
+          @click="${this.onNavItemClicked}"
         >
           ${!this.navItem.imageUrl
             ? nothing

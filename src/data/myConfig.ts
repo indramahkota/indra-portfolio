@@ -3,7 +3,7 @@ import userImageUrlRound from "../../libs/assets/images/avatars/profile_round_60
 import {
   InNavigationModel,
   InSocialMediaModel,
-  InUserModel
+  InUserModel,
 } from "../../libs/data/model/models";
 
 export default class AppConfig {
@@ -12,9 +12,6 @@ export default class AppConfig {
   static readonly TEXT_GREETING_DESC: string =
     "A passionate Software Developer, having an Experience of building Web and Android Applications using TypeScript, JavaScript, Kotlin, Java, and some other cool libraries and frameworks.";
   static readonly TEXT_FOOTER: string = "Made with ❤️ by Indra Mahkota";
-
-  static readonly LCS_THEME: string = "indramahkota-theme-mode";
-  static readonly LCS_DRAWER: string = "indramahkota-drawer-mode";
 
   static readonly STATIC_USER: InUserModel = {
     name: "Indra Mahkota",
@@ -49,7 +46,7 @@ export default class AppConfig {
     {
       name: "Indra Mahkota",
       url: "#/profile",
-      isActive: true,
+      isActive: false,
       imageUrl: userImageUrlRound,
       imageAlt: "Indra Mahkota",
     },

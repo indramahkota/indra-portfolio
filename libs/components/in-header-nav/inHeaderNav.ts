@@ -14,24 +14,9 @@ export default class InHeaderNav extends CommonElement {
   @property({ type: Boolean })
   isDrawerOpen = false;
 
-  connectedCallback(): void {
-    super.connectedCallback();
-    if (window.location.hash !== "")
-      this.dataShouldUpdate(window.location.hash);
-  }
-
-  dataShouldUpdate(hash: string): void {
-    this.navData = this.navData.map((nav) => {
-      nav.isActive = nav.url === hash || false;
-      return nav;
-    });
-  }
-
-  onNavItemClickHandler(event: Event): void {
-    const details = (event as CustomEvent).detail;
-    if (!details.data.url) return;
-    this.dataShouldUpdate(details.data.url);
-  }
+  // Methods
+  @property({ type: Object })
+  onNavItemClicked = () => {};
 
   render(): TemplateResult {
     const open = { open: this.isDrawerOpen };
@@ -44,7 +29,7 @@ export default class InHeaderNav extends CommonElement {
               (nav) => html`<li>
                 <in-header-nav-item
                   .navItem=${nav}
-                  .onNavItemClicked=${this.dataShouldUpdate}
+                  .onNavItemClicked=${this.onNavItemClicked}
                 ></in-header-nav-item>
               </li>`
             )}

@@ -1,3 +1,5 @@
+import Config from "@in/base/utils/Config";
+import Utils from "@in/base/utils/Utils";
 import { html, nothing, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
@@ -24,12 +26,6 @@ export default class InHeader extends ScrollElement {
   @property({ type: Boolean })
   supportDarkMode = true;
 
-  // Methods
-  @property({ type: Object })
-  onToggleDark = (_checked: boolean) => {};
-  @property({ type: Object })
-  onDrawerChange = (_open: boolean) => {};
-
   onScrollHandler(): void {
     if (this.currScrollPosition < 120) {
       this.isShow = true;
@@ -45,6 +41,16 @@ export default class InHeader extends ScrollElement {
   onResizeHandler = (): void => {
     this.onScrollHandler();
     this.onDrawerChange(false);
+  };
+
+  onDrawerChange = (open: boolean) => {
+    this.isDrawerOpen = open;
+    if (open) Utils.setLCS(Config.LCS_DRAWER, "open");
+    else Utils.setLCS(Config.LCS_DRAWER, "close");
+  };
+
+  onNavItemClicked = () => {
+    this.isDrawerOpen = false;
   };
 
   connectedCallback(): void {
@@ -75,7 +81,6 @@ export default class InHeader extends ScrollElement {
           ${this.supportDarkMode
             ? html`<in-toggle-dark
                 ?darkMode=${this.darkMode}
-                .onToggleDark=${this.onToggleDark}
                 class="ms-auto"
               ></in-toggle-dark>`
             : nothing}
@@ -91,6 +96,7 @@ export default class InHeader extends ScrollElement {
           <in-header-nav
             ?isDrawerOpen=${this.isDrawerOpen}
             .navData=${this.navData}
+            .onNavItemClicked=${this.onNavItemClicked}
           ></in-header-nav>
         </header>
       </div>
