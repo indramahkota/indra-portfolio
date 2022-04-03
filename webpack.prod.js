@@ -3,10 +3,10 @@
 
 const { resolve } = require("path");
 const { merge } = require("webpack-merge");
-const { ESBuildMinifyPlugin } = require("esbuild-loader");
 const TerserPlugin = require("terser-webpack-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const LicensePlugin = require("webpack-license-plugin");
 const common = require("./webpack.common");
 const pwaPlugin = require("./pwa/pwa-plugin");
 
@@ -20,43 +20,21 @@ module.exports = merge(common, {
   optimization: {
     minimize: true,
     minimizer: [
-      new ESBuildMinifyPlugin({
-        css: true,
-      }),
       new TerserPlugin({
-        terserOptions: {
-          compress: {
-            drop_console: true,
+        extractComments: {
+          condition: /^\**!|@preserve|@license|@cc_on/i,
+          filename: (fileData) => {
+            // The "fileData" argument contains object with "filename", "basename", "query" and "hash"
+            return `${fileData.filename}.LICENSE.txt${fileData.query}`;
           },
-          mangle: true,
-          module: false,
-          output: {
-            comments: false,
+          banner: (licenseFile) => {
+            return `License information can be found in ${licenseFile}`;
           },
         },
-        extractComments: true,
       }),
     ],
     splitChunks: {
       chunks: "all",
-      minSize: 20000,
-      minRemainingSize: 0,
-      minChunks: 1,
-      maxAsyncRequests: 30,
-      maxInitialRequests: 30,
-      enforceSizeThreshold: 50000,
-      cacheGroups: {
-        defaultVendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10,
-          reuseExistingChunk: true,
-        },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true,
-        },
-      },
     },
   },
   module: {
@@ -86,6 +64,7 @@ module.exports = merge(common, {
   },
   plugins: [
     ...pwaPlugin,
+    new LicensePlugin(),
     new ImageMinimizerPlugin({
       minimizer: {
         implementation: ImageMinimizerPlugin.imageminMinify,

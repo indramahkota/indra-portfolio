@@ -1,0 +1,23 @@
+.in-header {
+  z-index: $zindex-fixed;
+  height: $header-height-total;
+  transition: transform 0.2s ease-out;
+  border-bottom: 1px solid var(--color-page-background);
+  background-color: var(--color-article-background);
+  &.hide {
+    @include translate-x(neg($header-height-total));
+  }
+  .header {
+    height: $header-height;
+    max-width: $content-max-width;
+  }
+}
+
+@media screen and (min-width: 810px) {
+  .in-header {
+    .header {
+      border-radius: 100px;
+      border: 1px solid var(--color-line);
+    }
+  }
+}

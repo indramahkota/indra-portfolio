@@ -1,0 +1,44 @@
+.in-toggle-dark {
+  .in-toggle-label {
+    @include wh(84px, 38px);
+    input {
+      @include wh(0, 0);
+      @include scale(0, 0);
+      &:checked + .slider {
+        background-color: #2196f3;
+      }
+      &:checked + .slider:before {
+        @include translate-x(46px);
+      }
+    }
+    .in-toggle-icon {
+      @include wh-inherit;
+      padding: 7px;
+    }
+    .slider {
+      @include wh-inherit;
+      cursor: pointer;
+      position: absolute;
+      border: 2px solid white;
+      -webkit-transition: transform 0.4s;
+      transition: transform 0.4s;
+      &:before {
+        @include wh(26px, 26px);
+        content: "";
+        position: absolute;
+        margin: 4px;
+        right: 46px;
+        z-index: 2;
+        background-color: white;
+        -webkit-transition: transform 0.4s ease-out;
+        transition: transform 0.4s ease-out;
+      }
+      &.round {
+        border-radius: 34px;
+      }
+      &.round:before {
+        border-radius: 50%;
+      }
+    }
+  }
+}
