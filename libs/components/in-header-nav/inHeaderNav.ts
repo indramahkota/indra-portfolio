@@ -4,6 +4,7 @@ import { html, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { repeat } from "lit/directives/repeat.js";
+
 @customElement("in-header-nav")
 export default class InHeaderNav extends CommonElement {
   // Properties

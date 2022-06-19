@@ -3,6 +3,7 @@ import { Config, ScrollElement, Utils } from "@in/main";
 import { html, nothing, TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
+
 @customElement("in-header")
 export default class InHeader extends ScrollElement {
   // Properties
