@@ -3,6 +3,7 @@ import userImageUrlRound from "@in/assets/webp/profile_round_60.webp";
 import Icons from "@in/base/utils/Icons";
 import {
   InNavigationModel,
+  InProjectModel,
   InSocialMediaModel,
   InUserModel,
 } from "@in/data/models";
@@ -88,6 +89,33 @@ export default class AppConfig {
       isEmail: false,
       color: "#3b5998",
       icon: Icons.FACEBOOK,
+    },
+  ];
+
+  static readonly APP_PROJECTS: InProjectModel[] = [
+    {
+      title: "Skills",
+      description: "#/skills",
+    },
+    {
+      title: "Skills",
+      description: "#/skills",
+    },
+    {
+      title: "Skills",
+      description: "#/skills",
+    },
+    {
+      title: "Skills",
+      description: "#/skills",
+    },
+    {
+      title: "Skills",
+      description: "#/skills",
+    },
+    {
+      title: "Skills",
+      description: "#/skills",
     },
   ];
 

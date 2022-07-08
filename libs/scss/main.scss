@@ -76,6 +76,10 @@ body {
   max-width: 928px;
 }
 
+.card-height-default {
+  min-height: 220px;
+}
+
 .text-default {
   color: var(--color-text);
 }

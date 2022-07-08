@@ -12,6 +12,7 @@ import InHeaderNavItem from "./in-header-nav-item/inHeaderNavItem";
 import InHeaderNav from "./in-header-nav/inHeaderNav";
 import InHeader from "./in-header/inHeader";
 import InProfile from "./in-profile/inProfile";
+import InProjectCard from "./in-project-card/inProjectCard";
 import InSocialMedia from "./in-social-media/inSocialMedia";
 import InToTop from "./in-to-top/inToTop";
 import InToggleDark from "./in-toogle-dark/inToggleDark";
@@ -35,6 +36,7 @@ declare global {
     "in-social-media": InSocialMedia;
     "in-to-top": InToTop;
     "in-toggle-dark": InToggleDark;
+    "in-project-card": InProjectCard;
   }
 }
 
@@ -56,4 +58,5 @@ export {
   InSocialMedia,
   InToTop,
   InToggleDark,
+  InProjectCard,
 };

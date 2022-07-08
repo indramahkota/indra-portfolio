@@ -21,3 +21,8 @@ export interface InSocialMediaModel {
   color: string;
   isEmail: boolean;
 }
+
+export interface InProjectModel {
+  title: string;
+  description: string;
+}
