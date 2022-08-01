@@ -34,7 +34,6 @@ export class PersonalWebsite extends CommonElement {
         ${new Route("/profile", () => html`<page-landing />`, true).mount()}
         ${new Route("/projects", () => html`<page-project />`, true).mount()}
       </main>
-      <in-footer text=${AppConfig.TEXT_FOOTER}></in-footer>
     `;
   }
 }

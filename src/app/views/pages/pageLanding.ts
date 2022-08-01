@@ -15,6 +15,7 @@ export class LandingPage extends CommonElement {
         .user=${AppConfig.STATIC_USER}
         .socialMedia=${AppConfig.APP_SOCIAL_MEDIA}
       ></in-profile>
+      <in-footer text=${AppConfig.TEXT_FOOTER}></in-footer>
     `;
   }
 }

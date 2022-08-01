@@ -24,6 +24,7 @@ export class ProjectPage extends CommonElement {
           ${AppConfig.APP_PROJECTS.map((item) => this.renderProjectCard(item))}
         </div>
       </div>
+      <in-footer text=${AppConfig.TEXT_FOOTER}></in-footer>
     `;
   }
 }
