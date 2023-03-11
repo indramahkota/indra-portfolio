@@ -10,7 +10,7 @@ import "./pages/pageProject";
 export class PersonalWebsite extends CommonElement {
   _forceUpdateHandler = async (): Promise<void> => {
     if (window.location.hash === "#content") return;
-    await this.requestUpdate();
+    this.requestUpdate();
   };
 
   connectedCallback(): void {
