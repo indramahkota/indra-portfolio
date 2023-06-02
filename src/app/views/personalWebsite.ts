@@ -32,7 +32,9 @@ export class PersonalWebsite extends CommonElement {
       <main id="content">
         ${new Route("/", () => html`<page-landing />`, true).mount()}
         ${new Route("/profile", () => html`<page-landing />`, true).mount()}
-        ${new Route("/projects", () => html`<page-project />`, true).mount()}
+        ${new Route("/projects", () => html`<page-landing />`, true).mount()}
+        ${new Route("/work-experiences", () => html`<page-landing />`, true).mount()}
+        ${new Route("/skills", () => html`<page-landing />`, true).mount()}
       </main>
     `;
   }
