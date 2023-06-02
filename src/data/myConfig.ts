@@ -85,7 +85,7 @@ export default class AppConfig {
     },
     {
       name: "facebook",
-      url: "https://www.facebook.com/indramahkota.id",
+      url: "https://www.facebook.com/mhkt.ind",
       isEmail: false,
       color: "#3b5998",
       icon: Icons.FACEBOOK,
