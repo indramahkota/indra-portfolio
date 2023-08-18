@@ -16,7 +16,7 @@ export default class InGreeting extends Card(CommonElement) {
         <h2 class="card-title">
           ${this.greeting} <span class="wave-emoji">👋</span>
         </h2>
-        <p class="card-text">${this.description}</p>
+        <p class="card-text" style="line-height: 20pt;">${this.description}</p>
       </div>
     `);
   }
