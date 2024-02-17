@@ -50,7 +50,7 @@ export default class AppConfig {
       url: "#/profile",
       isActive: false,
       imageUrl: userImageUrlRound,
-      imageAlt: undefined,
+      imageAlt: "Profile Image",
     },
   ];
 
