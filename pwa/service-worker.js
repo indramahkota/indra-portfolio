@@ -99,26 +99,4 @@ registerRoute(
 skipWaiting();
 clientsClaim();
 
-// self.addEventListener("push", e => {
-//     let body;
-
-//     if (e.data) {
-//         body = e.data.text();
-//     } else {
-//         body = "Push message no payload";
-//     }
-
-//     let options = {
-//         body: body,
-//         icon: "notif_icon.png",
-//         vibrate: [100, 50, 100],
-//         data: {
-//             dateOfArrival: Date.now(),
-//             primaryKey: 1,
-//         },
-//     };
-
-//     e.waitUntil(self.registration.showNotification("Push Notification", options));
-// });
-
 precacheAndRoute(self.__WB_MANIFEST, { ignoreUrlParametersMatching: [/.*/] });
