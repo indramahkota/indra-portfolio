@@ -66,18 +66,37 @@ module.exports = merge(common, {
     ...pwaPlugin,
     new LicensePlugin(),
     new ImageMinimizerPlugin({
-      minimizer: {
-        implementation: ImageMinimizerPlugin.imageminMinify,
-        options: {
-          plugins: [
-            "imagemin-gifsicle",
-            "imagemin-mozjpeg",
-            "imagemin-pngquant",
-            "imagemin-svgo",
-          ],
+      minimizer: [
+        {
+          // `sharp` will handle all bitmap formats (JPG, PNG, GIF, ...)
+          implementation: ImageMinimizerPlugin.sharpMinify,
+
+          // exclude SVG if implementation support it. Not required for `sharp`.
+          // filter: (source, sourcePath) => !(/\.(svg)$/i.test(sourcePath)),
+
+          options: {
+            encodeOptions: {
+              // Your options for `sharp`
+              // https://sharp.pixelplumbing.com/api-output
+            },
+          },
         },
-      },
-      loader: true,
+        {
+          // `svgo` will handle vector images (SVG)
+          implementation: ImageMinimizerPlugin.svgoMinify,
+          options: {
+            encodeOptions: {
+              // Pass over SVGs multiple times to ensure all optimizations are applied. False by default
+              multipass: true,
+              plugins: [
+                // set of built-in plugins enabled by default
+                // see: https://github.com/svg/svgo#default-preset
+                "preset-default",
+              ],
+            },
+          },
+        },
+      ],
     }),
     new MiniCssExtractPlugin({
       filename: "static/css/[name].[contenthash:16].css",

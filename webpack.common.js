@@ -39,13 +39,14 @@ module.exports = {
         exclude: ["/node_modules/"],
       },
       {
-        test: /\.(svg|png|jpg|webp|)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: { name: "static/images/[contenthash:16].[ext]" },
-          },
-        ],
+        test: /\.(jpe?g|png|gif|svg|webp)$/i,
+        type: "asset",
+        generator: {
+          filename: (pathData) => {
+            let filename = '[name][width][height].[contenthash:8][ext]';
+            return filename;
+          }
+        }
       },
     ],
   },
