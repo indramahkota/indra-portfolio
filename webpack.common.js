@@ -58,7 +58,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: resolve(__dirname, "src/index.html"),
-      minify: { collapseWhitespace: true, removeComments: true },
+      minify: {collapseWhitespace: true, removeComments: true},
     }),
     new CopyWebpackPlugin({
       patterns: [

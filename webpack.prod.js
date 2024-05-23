@@ -70,10 +70,6 @@ module.exports = merge(common, {
         {
           // `sharp` will handle all bitmap formats (JPG, PNG, GIF, ...)
           implementation: ImageMinimizerPlugin.sharpMinify,
-
-          // exclude SVG if implementation support it. Not required for `sharp`.
-          // filter: (source, sourcePath) => !(/\.(svg)$/i.test(sourcePath)),
-
           options: {
             encodeOptions: {
               // Your options for `sharp`

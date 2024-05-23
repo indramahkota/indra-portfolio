@@ -13,7 +13,11 @@
     "declarationDir": "dist/types",
     "declaration": true,
     "strict": true,
-    "lib": ["es2017", "dom", "dom.iterable"],
+    "lib": [
+      "es2017",
+      "dom",
+      "dom.iterable"
+    ],
     "declarationMap": true,
     "sourceMap": true,
     "outDir": "./dist",
@@ -31,9 +35,15 @@
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
-      "@in/*": ["libs/components/*"],
-      "@in/data/*": ["libs/data/*"],
-      "@in/assets/*": ["libs/assets/*"]
+      "@in/*": [
+        "libs/components/*"
+      ],
+      "@in/data/*": [
+        "libs/data/*"
+      ],
+      "@in/assets/*": [
+        "libs/assets/*"
+      ]
     }
   },
   "include": [
@@ -41,5 +51,7 @@
     "libs/**/*",
     "node_modules/lit-scss-loader/types.d.ts"
   ],
-  "files": ["src/index.ts"]
+  "files": [
+    "src/index.ts"
+  ]
 }
